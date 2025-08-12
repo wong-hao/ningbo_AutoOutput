@@ -28,18 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip4 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem4 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip5 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem5 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip6 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem6 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip10 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem10 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip20 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem20 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip21 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem21 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip22 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem22 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip19 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem19 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip16 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem16 = new DevExpress.Utils.ToolTipItem();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.btn_export = new DevExpress.XtraEditors.SimpleButton();
             this.btn_chartin = new DevExpress.XtraEditors.SimpleButton();
@@ -79,6 +79,7 @@
             this.combo_sector = new DevExpress.XtraEditors.ComboBoxEdit();
             this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
             this.groupControl5 = new DevExpress.XtraEditors.GroupControl();
+            this.fieldcheckedComboBoxEdit = new DevExpress.XtraEditors.CheckedComboBoxEdit();
             this.num_legendCol = new DevExpress.XtraEditors.SpinEdit();
             this.label_legendColor = new DevExpress.XtraEditors.LabelControl();
             this.label_legendStyle = new DevExpress.XtraEditors.LabelControl();
@@ -112,6 +113,7 @@
             this.txt_title = new DevExpress.XtraEditors.TextEdit();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
@@ -132,6 +134,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.combo_sector.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl5)).BeginInit();
             this.groupControl5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fieldcheckedComboBoxEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_legendCol.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.combo_legendPositon.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.check_legend.Properties)).BeginInit();
@@ -169,9 +172,9 @@
             this.btn_export.Location = new System.Drawing.Point(202, 9);
             this.btn_export.Name = "btn_export";
             this.btn_export.Size = new System.Drawing.Size(51, 27);
-            toolTipItem1.Text = "导入到当前地图中";
-            superToolTip1.Items.Add(toolTipItem1);
-            this.btn_export.SuperTip = superToolTip1;
+            toolTipItem10.Text = "导入到当前地图中";
+            superToolTip10.Items.Add(toolTipItem10);
+            this.btn_export.SuperTip = superToolTip10;
             this.btn_export.TabIndex = 10;
             this.btn_export.Text = "导出";
             this.btn_export.Click += new System.EventHandler(this.btn_export_Click);
@@ -183,9 +186,9 @@
             this.btn_chartin.Location = new System.Drawing.Point(131, 8);
             this.btn_chartin.Name = "btn_chartin";
             this.btn_chartin.Size = new System.Drawing.Size(65, 27);
-            toolTipItem2.Text = "导入到当前地图中";
-            superToolTip2.Items.Add(toolTipItem2);
-            this.btn_chartin.SuperTip = superToolTip2;
+            toolTipItem20.Text = "导入到当前地图中";
+            superToolTip20.Items.Add(toolTipItem20);
+            this.btn_chartin.SuperTip = superToolTip20;
             this.btn_chartin.TabIndex = 9;
             this.btn_chartin.Text = "导入地图";
             this.btn_chartin.Click += new System.EventHandler(this.btn_chartin_Click);
@@ -197,9 +200,9 @@
             this.btn_loadData.Location = new System.Drawing.Point(57, 8);
             this.btn_loadData.Name = "btn_loadData";
             this.btn_loadData.Size = new System.Drawing.Size(66, 27);
-            toolTipItem3.Text = "默认加载Excel文件中的第一个表格";
-            superToolTip3.Items.Add(toolTipItem3);
-            this.btn_loadData.SuperTip = superToolTip3;
+            toolTipItem21.Text = "默认加载Excel文件中的第一个表格";
+            superToolTip21.Items.Add(toolTipItem21);
+            this.btn_loadData.SuperTip = superToolTip21;
             this.btn_loadData.TabIndex = 8;
             this.btn_loadData.Text = "加载数据";
             this.btn_loadData.Click += new System.EventHandler(this.btn_loadData_Click);
@@ -301,9 +304,9 @@
             this.num_radius.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.num_radius.Size = new System.Drawing.Size(62, 20);
-            toolTipItem4.Text = "半径为0时，自动计算";
-            superToolTip4.Items.Add(toolTipItem4);
-            this.num_radius.SuperTip = superToolTip4;
+            toolTipItem22.Text = "半径为0时，自动计算";
+            superToolTip22.Items.Add(toolTipItem22);
+            this.num_radius.SuperTip = superToolTip22;
             this.num_radius.TabIndex = 24;
             this.num_radius.EditValueChanged += new System.EventHandler(this.num_radius_EditValueChanged);
             // 
@@ -319,9 +322,9 @@
             this.num_chartHeight.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.num_chartHeight.Size = new System.Drawing.Size(63, 20);
-            toolTipItem5.Text = "调整后，圆饼半径将置为0，便于系统自适应尺寸";
-            superToolTip5.Items.Add(toolTipItem5);
-            this.num_chartHeight.SuperTip = superToolTip5;
+            toolTipItem19.Text = "调整后，圆饼半径将置为0，便于系统自适应尺寸";
+            superToolTip19.Items.Add(toolTipItem19);
+            this.num_chartHeight.SuperTip = superToolTip19;
             this.num_chartHeight.TabIndex = 3;
             this.num_chartHeight.EditValueChanged += new System.EventHandler(this.num_chartHeight_EditValueChanged);
             // 
@@ -353,9 +356,9 @@
             this.num_chartWidth.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.num_chartWidth.Size = new System.Drawing.Size(63, 20);
-            toolTipItem6.Text = "调整后，圆饼半径将置为0，便于系统自适应尺寸";
-            superToolTip6.Items.Add(toolTipItem6);
-            this.num_chartWidth.SuperTip = superToolTip6;
+            toolTipItem16.Text = "调整后，圆饼半径将置为0，便于系统自适应尺寸";
+            superToolTip16.Items.Add(toolTipItem16);
+            this.num_chartWidth.SuperTip = superToolTip16;
             this.num_chartWidth.TabIndex = 1;
             this.num_chartWidth.EditValueChanged += new System.EventHandler(this.num_chartWidth_EditValueChanged);
             // 
@@ -378,11 +381,13 @@
             this.xtraScrollableControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xtraScrollableControl1.Location = new System.Drawing.Point(2, 2);
             this.xtraScrollableControl1.Name = "xtraScrollableControl1";
-            this.xtraScrollableControl1.Size = new System.Drawing.Size(309, 735);
+            this.xtraScrollableControl1.Size = new System.Drawing.Size(309, 767);
             this.xtraScrollableControl1.TabIndex = 0;
             // 
             // dataSettings
             // 
+            this.dataSettings.Controls.Add(this.label6);
+            this.dataSettings.Controls.Add(this.fieldcheckedComboBoxEdit);
             this.dataSettings.Controls.Add(this.seriesTransparencySpinEdit);
             this.dataSettings.Controls.Add(this.labelControl18);
             this.dataSettings.Controls.Add(this.lineWidthSpinEdit);
@@ -397,7 +402,7 @@
             this.dataSettings.Controls.Add(this.combo_labelField);
             this.dataSettings.Location = new System.Drawing.Point(3, 594);
             this.dataSettings.Name = "dataSettings";
-            this.dataSettings.Size = new System.Drawing.Size(306, 125);
+            this.dataSettings.Size = new System.Drawing.Size(306, 163);
             this.dataSettings.TabIndex = 16;
             this.dataSettings.Text = "数据设置";
             // 
@@ -408,7 +413,7 @@
             0,
             0,
             0});
-            this.seriesTransparencySpinEdit.Location = new System.Drawing.Point(208, 93);
+            this.seriesTransparencySpinEdit.Location = new System.Drawing.Point(208, 140);
             this.seriesTransparencySpinEdit.Name = "seriesTransparencySpinEdit";
             this.seriesTransparencySpinEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -420,7 +425,7 @@
             // 
             // labelControl18
             // 
-            this.labelControl18.Location = new System.Drawing.Point(166, 96);
+            this.labelControl18.Location = new System.Drawing.Point(166, 143);
             this.labelControl18.Name = "labelControl18";
             this.labelControl18.Size = new System.Drawing.Size(48, 14);
             this.labelControl18.TabIndex = 38;
@@ -433,7 +438,7 @@
             0,
             0,
             0});
-            this.lineWidthSpinEdit.Location = new System.Drawing.Point(55, 94);
+            this.lineWidthSpinEdit.Location = new System.Drawing.Point(55, 141);
             this.lineWidthSpinEdit.Name = "lineWidthSpinEdit";
             this.lineWidthSpinEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -445,7 +450,7 @@
             // 
             // labelControl15
             // 
-            this.labelControl15.Location = new System.Drawing.Point(13, 97);
+            this.labelControl15.Location = new System.Drawing.Point(13, 144);
             this.labelControl15.Name = "labelControl15";
             this.labelControl15.Size = new System.Drawing.Size(36, 14);
             this.labelControl15.TabIndex = 25;
@@ -455,7 +460,7 @@
             // 
             this.lineColorLabelControl.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lineColorLabelControl.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.lineColorLabelControl.Location = new System.Drawing.Point(78, 73);
+            this.lineColorLabelControl.Location = new System.Drawing.Point(72, 106);
             this.lineColorLabelControl.Name = "lineColorLabelControl";
             this.lineColorLabelControl.Size = new System.Drawing.Size(25, 19);
             this.lineColorLabelControl.TabIndex = 37;
@@ -463,7 +468,7 @@
             // 
             // lineColorSettingButton
             // 
-            this.lineColorSettingButton.Location = new System.Drawing.Point(226, 69);
+            this.lineColorSettingButton.Location = new System.Drawing.Point(220, 102);
             this.lineColorSettingButton.Name = "lineColorSettingButton";
             this.lineColorSettingButton.Size = new System.Drawing.Size(40, 23);
             this.lineColorSettingButton.TabIndex = 36;
@@ -472,7 +477,7 @@
             // 
             // labelControl17
             // 
-            this.labelControl17.Location = new System.Drawing.Point(17, 74);
+            this.labelControl17.Location = new System.Drawing.Point(11, 107);
             this.labelControl17.Name = "labelControl17";
             this.labelControl17.Size = new System.Drawing.Size(60, 14);
             this.labelControl17.TabIndex = 35;
@@ -482,7 +487,7 @@
             // 
             this.seriesColorLabelControl.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.seriesColorLabelControl.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.seriesColorLabelControl.Location = new System.Drawing.Point(78, 53);
+            this.seriesColorLabelControl.Location = new System.Drawing.Point(72, 86);
             this.seriesColorLabelControl.Name = "seriesColorLabelControl";
             this.seriesColorLabelControl.Size = new System.Drawing.Size(25, 19);
             this.seriesColorLabelControl.TabIndex = 34;
@@ -500,7 +505,7 @@
             // 
             // seriesColorSettingButton
             // 
-            this.seriesColorSettingButton.Location = new System.Drawing.Point(226, 49);
+            this.seriesColorSettingButton.Location = new System.Drawing.Point(220, 82);
             this.seriesColorSettingButton.Name = "seriesColorSettingButton";
             this.seriesColorSettingButton.Size = new System.Drawing.Size(40, 23);
             this.seriesColorSettingButton.TabIndex = 33;
@@ -509,7 +514,7 @@
             // 
             // labelControl19
             // 
-            this.labelControl19.Location = new System.Drawing.Point(17, 54);
+            this.labelControl19.Location = new System.Drawing.Point(11, 87);
             this.labelControl19.Name = "labelControl19";
             this.labelControl19.Size = new System.Drawing.Size(60, 14);
             this.labelControl19.TabIndex = 32;
@@ -602,6 +607,20 @@
             this.groupControl5.Size = new System.Drawing.Size(309, 111);
             this.groupControl5.TabIndex = 10;
             this.groupControl5.Text = "图例设置";
+            // 
+            // fieldcheckedComboBoxEdit
+            // 
+            this.fieldcheckedComboBoxEdit.EditValue = "";
+            this.fieldcheckedComboBoxEdit.Location = new System.Drawing.Point(76, 54);
+            this.fieldcheckedComboBoxEdit.Name = "fieldcheckedComboBoxEdit";
+            this.fieldcheckedComboBoxEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.fieldcheckedComboBoxEdit.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.CheckedListBoxItem[] {
+            new DevExpress.XtraEditors.Controls.CheckedListBoxItem("112"),
+            new DevExpress.XtraEditors.Controls.CheckedListBoxItem("233")});
+            this.fieldcheckedComboBoxEdit.Size = new System.Drawing.Size(100, 20);
+            this.fieldcheckedComboBoxEdit.TabIndex = 32;
+            this.fieldcheckedComboBoxEdit.EditValueChanged += new System.EventHandler(this.fieldcheckedComboBoxEdit_EditValueChanged);
             // 
             // num_legendCol
             // 
@@ -951,14 +970,24 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl2.Location = new System.Drawing.Point(0, 41);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(313, 739);
+            this.panelControl2.Size = new System.Drawing.Size(313, 771);
             this.panelControl2.TabIndex = 1;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label6.Location = new System.Drawing.Point(11, 57);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(65, 12);
+            this.label6.TabIndex = 40;
+            this.label6.Text = "显示类别：";
             // 
             // RadarParameterPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(313, 780);
+            this.ClientSize = new System.Drawing.Size(313, 812);
             this.Controls.Add(this.panelControl2);
             this.Controls.Add(this.panelControl1);
             this.Name = "RadarParameterPanel";
@@ -987,6 +1016,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl5)).EndInit();
             this.groupControl5.ResumeLayout(false);
             this.groupControl5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fieldcheckedComboBoxEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_legendCol.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.combo_legendPositon.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.check_legend.Properties)).EndInit();
@@ -1083,6 +1113,8 @@
         private System.Windows.Forms.Label label8;
         private DevExpress.XtraEditors.SimpleButton seriesColorSettingButton;
         private DevExpress.XtraEditors.LabelControl labelControl19;
+        private DevExpress.XtraEditors.CheckedComboBoxEdit fieldcheckedComboBoxEdit;
+        private System.Windows.Forms.Label label6;
 
 
 

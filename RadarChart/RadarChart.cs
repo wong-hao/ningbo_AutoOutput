@@ -25,9 +25,10 @@ namespace SMGI.Plugin.ThematicChart.TeeChart
 
         public override void OnClick()
         {
-                PieChartModel PCM = new PieChartModel();
-                pp = new RadarParameterPanel(GApplication.Application, PCM);
-                pp.Show();
+            PageLayoutOnRightClickMenuForChart.Init(GApplication.Application);
+            RadarChartModel PCM = new RadarChartModel(false);
+            pp = new RadarParameterPanel(GApplication.Application, PCM);
+            pp.Show();
         }
     }
 }

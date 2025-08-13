@@ -102,7 +102,7 @@ namespace SMGI.Plugin.ThematicChart.TeeChart.PieChart
             if (!reload)
             {
                 SeriesColorList = Enumerable.Repeat(Color.White, 10).ToList();
-                SeriesTransparencyList = Enumerable.Repeat(0, 10).ToList();
+                SeriesTransparencyList = Enumerable.Repeat(100, 10).ToList();
                 LineWidthList = Enumerable.Repeat(1, 10).ToList();
                 LineColorList = Enumerable.Repeat(Color.White, 10).ToList();
             }

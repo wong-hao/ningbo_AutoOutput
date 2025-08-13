@@ -451,10 +451,9 @@ namespace SMGI.Plugin.ThematicChart.TeeChart.PieChart
         private Color ColorFromTransparencyAndBaseColor(int transparencyPercent_0_100, Color baseColor)
         {
             // 限制范围
-            int percent = Math.Max(0, Math.Min(100, transparencyPercent_0_100));
 
             // 0% -> 255 (完全透明), 100% -> 0 (完全不透明)
-            int alpha = 255 - (percent * 255 / 100);
+            int alpha = transparencyPercent_0_100;
 
             return Color.FromArgb(
                 alpha,
@@ -1408,7 +1407,7 @@ namespace SMGI.Plugin.ThematicChart.TeeChart.PieChart
                         this.seriesColorLabelControl.BackColor = pointColor;
                         this.m_RadarChartModel.SeriesColorList[m_RadarChartModel.Index] = pointColor;
 
-                        this.seriesTransparencySpinEdit.EditValue = (255 - pointColor.A) * 100 / 255; // 透明度
+                        this.seriesTransparencySpinEdit.EditValue = pointColor.A; // 透明度
                     };
 
                     break; // 找到对应系列就退出

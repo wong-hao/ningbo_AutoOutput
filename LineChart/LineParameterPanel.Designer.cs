@@ -1,6 +1,6 @@
 ﻿namespace SMGI.Plugin.ThematicChart.TeeChart.PieChart
 {
-    partial class RadarParameterPanel
+    partial class LineParameterPanel
     {
         /// <summary>
         /// Required designer variable.
@@ -28,18 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.Utils.SuperToolTip superToolTip7 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem7 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip8 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem8 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip9 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem9 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip6 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem6 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip11 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem11 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip12 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem12 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip13 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem13 = new DevExpress.Utils.ToolTipItem();
             DevExpress.Utils.SuperToolTip superToolTip10 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipItem toolTipItem10 = new DevExpress.Utils.ToolTipItem();
             DevExpress.Utils.SuperToolTip superToolTip4 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipItem toolTipItem4 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip5 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem5 = new DevExpress.Utils.ToolTipItem();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.btn_export = new DevExpress.XtraEditors.SimpleButton();
             this.btn_chartin = new DevExpress.XtraEditors.SimpleButton();
@@ -59,16 +59,27 @@
             this.num_chartWidth = new DevExpress.XtraEditors.SpinEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.xtraScrollableControl1 = new DevExpress.XtraEditors.XtraScrollableControl();
+            this.groupControl6 = new DevExpress.XtraEditors.GroupControl();
+            this.bottomTitleLabelControlText = new DevExpress.XtraEditors.LabelControl();
+            this.bottomTitleLabelControl = new DevExpress.XtraEditors.LabelControl();
+            this.bottomTitleTextEdit = new DevExpress.XtraEditors.TextEdit();
+            this.bottomTitleSimpleButton = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControl20 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl17 = new DevExpress.XtraEditors.LabelControl();
+            this.bottomTittleCheckEdit = new DevExpress.XtraEditors.CheckEdit();
+            this.pointerComboBoxEdit = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.pointerWidthSpinEdit = new DevExpress.XtraEditors.SpinEdit();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.label7 = new System.Windows.Forms.Label();
+            this.pointerCheckEdit = new DevExpress.XtraEditors.CheckEdit();
+            this.smoothedCheckEdit = new DevExpress.XtraEditors.CheckEdit();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.dataSettings = new DevExpress.XtraEditors.GroupControl();
-            this.label6 = new System.Windows.Forms.Label();
-            this.fieldcheckedComboBoxEdit = new DevExpress.XtraEditors.CheckedComboBoxEdit();
-            this.seriesTransparencySpinEdit = new DevExpress.XtraEditors.SpinEdit();
-            this.labelControl18 = new DevExpress.XtraEditors.LabelControl();
             this.lineWidthSpinEdit = new DevExpress.XtraEditors.SpinEdit();
             this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
-            this.lineColorLabelControl = new DevExpress.XtraEditors.LabelControl();
+            this.label6 = new System.Windows.Forms.Label();
+            this.fieldcheckedComboBoxEdit = new DevExpress.XtraEditors.CheckedComboBoxEdit();
             this.lineColorSettingButton = new DevExpress.XtraEditors.SimpleButton();
-            this.labelControl17 = new DevExpress.XtraEditors.LabelControl();
             this.seriesColorLabelControl = new DevExpress.XtraEditors.LabelControl();
             this.label8 = new System.Windows.Forms.Label();
             this.seriesColorSettingButton = new DevExpress.XtraEditors.SimpleButton();
@@ -108,6 +119,8 @@
             this.txt_title = new DevExpress.XtraEditors.TextEdit();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.groupControl7 = new DevExpress.XtraEditors.GroupControl();
+            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
@@ -118,11 +131,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.num_chartHeight.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_chartWidth.Properties)).BeginInit();
             this.xtraScrollableControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl6)).BeginInit();
+            this.groupControl6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bottomTitleTextEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bottomTittleCheckEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pointerComboBoxEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pointerWidthSpinEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pointerCheckEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.smoothedCheckEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSettings)).BeginInit();
             this.dataSettings.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.fieldcheckedComboBoxEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.seriesTransparencySpinEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lineWidthSpinEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fieldcheckedComboBoxEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.combo_labelField.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl5)).BeginInit();
             this.groupControl5.SuspendLayout();
@@ -142,6 +162,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txt_title.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl7)).BeginInit();
+            this.groupControl7.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -163,9 +185,9 @@
             this.btn_export.Location = new System.Drawing.Point(202, 9);
             this.btn_export.Name = "btn_export";
             this.btn_export.Size = new System.Drawing.Size(51, 27);
-            toolTipItem7.Text = "导入到当前地图中";
-            superToolTip7.Items.Add(toolTipItem7);
-            this.btn_export.SuperTip = superToolTip7;
+            toolTipItem6.Text = "导入到当前地图中";
+            superToolTip6.Items.Add(toolTipItem6);
+            this.btn_export.SuperTip = superToolTip6;
             this.btn_export.TabIndex = 10;
             this.btn_export.Text = "导出";
             this.btn_export.Click += new System.EventHandler(this.btn_export_Click);
@@ -177,9 +199,9 @@
             this.btn_chartin.Location = new System.Drawing.Point(131, 8);
             this.btn_chartin.Name = "btn_chartin";
             this.btn_chartin.Size = new System.Drawing.Size(65, 27);
-            toolTipItem8.Text = "导入到当前地图中";
-            superToolTip8.Items.Add(toolTipItem8);
-            this.btn_chartin.SuperTip = superToolTip8;
+            toolTipItem11.Text = "导入到当前地图中";
+            superToolTip11.Items.Add(toolTipItem11);
+            this.btn_chartin.SuperTip = superToolTip11;
             this.btn_chartin.TabIndex = 9;
             this.btn_chartin.Text = "导入地图";
             this.btn_chartin.Click += new System.EventHandler(this.btn_chartin_Click);
@@ -191,9 +213,9 @@
             this.btn_loadData.Location = new System.Drawing.Point(57, 8);
             this.btn_loadData.Name = "btn_loadData";
             this.btn_loadData.Size = new System.Drawing.Size(66, 27);
-            toolTipItem9.Text = "默认加载Excel文件中的第一个表格";
-            superToolTip9.Items.Add(toolTipItem9);
-            this.btn_loadData.SuperTip = superToolTip9;
+            toolTipItem12.Text = "默认加载Excel文件中的第一个表格";
+            superToolTip12.Items.Add(toolTipItem12);
+            this.btn_loadData.SuperTip = superToolTip12;
             this.btn_loadData.TabIndex = 8;
             this.btn_loadData.Text = "加载数据";
             this.btn_loadData.Click += new System.EventHandler(this.btn_loadData_Click);
@@ -224,9 +246,9 @@
             this.groupControl1.Controls.Add(this.num_chartWidth);
             this.groupControl1.Controls.Add(this.labelControl1);
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupControl1.Location = new System.Drawing.Point(0, 0);
+            this.groupControl1.Location = new System.Drawing.Point(0, -115);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(309, 107);
+            this.groupControl1.Size = new System.Drawing.Size(308, 107);
             this.groupControl1.TabIndex = 4;
             this.groupControl1.Text = "通用设置";
             // 
@@ -295,9 +317,9 @@
             this.num_radius.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.num_radius.Size = new System.Drawing.Size(62, 20);
-            toolTipItem10.Text = "半径为0时，自动计算";
-            superToolTip10.Items.Add(toolTipItem10);
-            this.num_radius.SuperTip = superToolTip10;
+            toolTipItem13.Text = "半径为0时，自动计算";
+            superToolTip13.Items.Add(toolTipItem13);
+            this.num_radius.SuperTip = superToolTip13;
             this.num_radius.TabIndex = 24;
             this.num_radius.EditValueChanged += new System.EventHandler(this.num_radius_EditValueChanged);
             // 
@@ -313,9 +335,9 @@
             this.num_chartHeight.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.num_chartHeight.Size = new System.Drawing.Size(63, 20);
-            toolTipItem4.Text = "调整后，圆饼半径将置为0，便于系统自适应尺寸";
-            superToolTip4.Items.Add(toolTipItem4);
-            this.num_chartHeight.SuperTip = superToolTip4;
+            toolTipItem10.Text = "调整后，圆饼半径将置为0，便于系统自适应尺寸";
+            superToolTip10.Items.Add(toolTipItem10);
+            this.num_chartHeight.SuperTip = superToolTip10;
             this.num_chartHeight.TabIndex = 3;
             this.num_chartHeight.EditValueChanged += new System.EventHandler(this.num_chartHeight_EditValueChanged);
             // 
@@ -347,9 +369,9 @@
             this.num_chartWidth.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.num_chartWidth.Size = new System.Drawing.Size(63, 20);
-            toolTipItem5.Text = "调整后，圆饼半径将置为0，便于系统自适应尺寸";
-            superToolTip5.Items.Add(toolTipItem5);
-            this.num_chartWidth.SuperTip = superToolTip5;
+            toolTipItem4.Text = "调整后，圆饼半径将置为0，便于系统自适应尺寸";
+            superToolTip4.Items.Add(toolTipItem4);
+            this.num_chartWidth.SuperTip = superToolTip4;
             this.num_chartWidth.TabIndex = 1;
             this.num_chartWidth.EditValueChanged += new System.EventHandler(this.num_chartWidth_EditValueChanged);
             // 
@@ -363,6 +385,8 @@
             // 
             // xtraScrollableControl1
             // 
+            this.xtraScrollableControl1.Controls.Add(this.groupControl7);
+            this.xtraScrollableControl1.Controls.Add(this.groupControl6);
             this.xtraScrollableControl1.Controls.Add(this.dataSettings);
             this.xtraScrollableControl1.Controls.Add(this.groupControl5);
             this.xtraScrollableControl1.Controls.Add(this.groupControl2);
@@ -371,30 +395,203 @@
             this.xtraScrollableControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xtraScrollableControl1.Location = new System.Drawing.Point(2, 2);
             this.xtraScrollableControl1.Name = "xtraScrollableControl1";
-            this.xtraScrollableControl1.Size = new System.Drawing.Size(309, 677);
+            this.xtraScrollableControl1.Size = new System.Drawing.Size(309, 986);
             this.xtraScrollableControl1.TabIndex = 0;
+            // 
+            // groupControl6
+            // 
+            this.groupControl6.Controls.Add(this.pointerComboBoxEdit);
+            this.groupControl6.Controls.Add(this.pointerWidthSpinEdit);
+            this.groupControl6.Controls.Add(this.labelControl3);
+            this.groupControl6.Controls.Add(this.label7);
+            this.groupControl6.Controls.Add(this.pointerCheckEdit);
+            this.groupControl6.Controls.Add(this.smoothedCheckEdit);
+            this.groupControl6.Controls.Add(this.simpleButton1);
+            this.groupControl6.Location = new System.Drawing.Point(2, 679);
+            this.groupControl6.Name = "groupControl6";
+            this.groupControl6.Size = new System.Drawing.Size(306, 161);
+            this.groupControl6.TabIndex = 42;
+            this.groupControl6.Text = "数据设置";
+            // 
+            // bottomTitleLabelControlText
+            // 
+            this.bottomTitleLabelControlText.Location = new System.Drawing.Point(124, 86);
+            this.bottomTitleLabelControlText.Name = "bottomTitleLabelControlText";
+            this.bottomTitleLabelControlText.Size = new System.Drawing.Size(12, 14);
+            this.bottomTitleLabelControlText.TabIndex = 48;
+            this.bottomTitleLabelControlText.Text = "：";
+            // 
+            // bottomTitleLabelControl
+            // 
+            this.bottomTitleLabelControl.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bottomTitleLabelControl.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.bottomTitleLabelControl.Location = new System.Drawing.Point(71, 86);
+            this.bottomTitleLabelControl.Name = "bottomTitleLabelControl";
+            this.bottomTitleLabelControl.Size = new System.Drawing.Size(25, 19);
+            this.bottomTitleLabelControl.TabIndex = 30;
+            this.bottomTitleLabelControl.Text = "     ";
+            // 
+            // bottomTitleTextEdit
+            // 
+            this.bottomTitleTextEdit.Location = new System.Drawing.Point(52, 57);
+            this.bottomTitleTextEdit.Name = "bottomTitleTextEdit";
+            this.bottomTitleTextEdit.Size = new System.Drawing.Size(208, 20);
+            this.bottomTitleTextEdit.TabIndex = 29;
+            this.bottomTitleTextEdit.EditValueChanged += new System.EventHandler(this.bottomTitleTextEdit_EditValueChanged);
+            // 
+            // bottomTitleSimpleButton
+            // 
+            this.bottomTitleSimpleButton.Location = new System.Drawing.Point(219, 83);
+            this.bottomTitleSimpleButton.Name = "bottomTitleSimpleButton";
+            this.bottomTitleSimpleButton.Size = new System.Drawing.Size(41, 23);
+            this.bottomTitleSimpleButton.TabIndex = 29;
+            this.bottomTitleSimpleButton.Text = "设置";
+            this.bottomTitleSimpleButton.Click += new System.EventHandler(this.bottomTitleSimpleButton_Click);
+            // 
+            // labelControl20
+            // 
+            this.labelControl20.Location = new System.Drawing.Point(10, 86);
+            this.labelControl20.Name = "labelControl20";
+            this.labelControl20.Size = new System.Drawing.Size(60, 14);
+            this.labelControl20.TabIndex = 28;
+            this.labelControl20.Text = "标题样式：";
+            // 
+            // labelControl17
+            // 
+            this.labelControl17.Location = new System.Drawing.Point(10, 60);
+            this.labelControl17.Name = "labelControl17";
+            this.labelControl17.Size = new System.Drawing.Size(36, 14);
+            this.labelControl17.TabIndex = 28;
+            this.labelControl17.Text = "标题：";
+            // 
+            // bottomTittleCheckEdit
+            // 
+            this.bottomTittleCheckEdit.Location = new System.Drawing.Point(12, 32);
+            this.bottomTittleCheckEdit.Name = "bottomTittleCheckEdit";
+            this.bottomTittleCheckEdit.Properties.Caption = "是否显示坐标轴标题";
+            this.bottomTittleCheckEdit.Size = new System.Drawing.Size(99, 19);
+            this.bottomTittleCheckEdit.TabIndex = 47;
+            this.bottomTittleCheckEdit.CheckedChanged += new System.EventHandler(this.bottomTittleCheckEdit_CheckedChanged);
+            // 
+            // pointerComboBoxEdit
+            // 
+            this.pointerComboBoxEdit.Location = new System.Drawing.Point(194, 79);
+            this.pointerComboBoxEdit.Name = "pointerComboBoxEdit";
+            this.pointerComboBoxEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.pointerComboBoxEdit.Properties.Items.AddRange(new object[] {
+            "圆形",
+            "三角",
+            "方形",
+            "菱形",
+            "五角星",
+            "六角星"});
+            this.pointerComboBoxEdit.Size = new System.Drawing.Size(84, 20);
+            this.pointerComboBoxEdit.TabIndex = 46;
+            this.pointerComboBoxEdit.SelectedIndexChanged += new System.EventHandler(this.pointerComboBoxEdit_SelectedIndexChanged);
+            // 
+            // pointerWidthSpinEdit
+            // 
+            this.pointerWidthSpinEdit.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.pointerWidthSpinEdit.Location = new System.Drawing.Point(49, 84);
+            this.pointerWidthSpinEdit.Name = "pointerWidthSpinEdit";
+            this.pointerWidthSpinEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.pointerWidthSpinEdit.Properties.IsFloatValue = false;
+            this.pointerWidthSpinEdit.Properties.Mask.EditMask = "N00";
+            this.pointerWidthSpinEdit.Size = new System.Drawing.Size(73, 20);
+            this.pointerWidthSpinEdit.TabIndex = 45;
+            this.pointerWidthSpinEdit.EditValueChanged += new System.EventHandler(this.pointerWidthSpinEdit_EditValueChanged);
+            // 
+            // labelControl3
+            // 
+            this.labelControl3.Location = new System.Drawing.Point(7, 87);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(36, 14);
+            this.labelControl3.TabIndex = 44;
+            this.labelControl3.Text = "大小：";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label7.Location = new System.Drawing.Point(128, 87);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(65, 12);
+            this.label7.TabIndex = 45;
+            this.label7.Text = "标注类别：";
+            // 
+            // pointerCheckEdit
+            // 
+            this.pointerCheckEdit.Location = new System.Drawing.Point(16, 54);
+            this.pointerCheckEdit.Name = "pointerCheckEdit";
+            this.pointerCheckEdit.Properties.Caption = "是否开启点标注";
+            this.pointerCheckEdit.Size = new System.Drawing.Size(99, 19);
+            this.pointerCheckEdit.TabIndex = 42;
+            this.pointerCheckEdit.CheckedChanged += new System.EventHandler(this.pointerCheckEdit_CheckedChanged);
+            // 
+            // smoothedCheckEdit
+            // 
+            this.smoothedCheckEdit.Location = new System.Drawing.Point(16, 29);
+            this.smoothedCheckEdit.Name = "smoothedCheckEdit";
+            this.smoothedCheckEdit.Properties.Caption = "是否显示曲线";
+            this.smoothedCheckEdit.Size = new System.Drawing.Size(99, 19);
+            this.smoothedCheckEdit.TabIndex = 32;
+            this.smoothedCheckEdit.CheckedChanged += new System.EventHandler(this.smoothedCheckEdit_CheckedChanged);
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Location = new System.Drawing.Point(0, 0);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(75, 23);
+            this.simpleButton1.TabIndex = 41;
             // 
             // dataSettings
             // 
-            this.dataSettings.Controls.Add(this.label6);
-            this.dataSettings.Controls.Add(this.fieldcheckedComboBoxEdit);
-            this.dataSettings.Controls.Add(this.seriesTransparencySpinEdit);
-            this.dataSettings.Controls.Add(this.labelControl18);
             this.dataSettings.Controls.Add(this.lineWidthSpinEdit);
             this.dataSettings.Controls.Add(this.labelControl15);
-            this.dataSettings.Controls.Add(this.lineColorLabelControl);
+            this.dataSettings.Controls.Add(this.label6);
+            this.dataSettings.Controls.Add(this.fieldcheckedComboBoxEdit);
             this.dataSettings.Controls.Add(this.lineColorSettingButton);
-            this.dataSettings.Controls.Add(this.labelControl17);
             this.dataSettings.Controls.Add(this.seriesColorLabelControl);
             this.dataSettings.Controls.Add(this.label8);
             this.dataSettings.Controls.Add(this.seriesColorSettingButton);
             this.dataSettings.Controls.Add(this.labelControl19);
             this.dataSettings.Controls.Add(this.combo_labelField);
-            this.dataSettings.Location = new System.Drawing.Point(3, 498);
+            this.dataSettings.Location = new System.Drawing.Point(0, 498);
             this.dataSettings.Name = "dataSettings";
             this.dataSettings.Size = new System.Drawing.Size(306, 163);
             this.dataSettings.TabIndex = 16;
             this.dataSettings.Text = "数据设置";
+            // 
+            // lineWidthSpinEdit
+            // 
+            this.lineWidthSpinEdit.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.lineWidthSpinEdit.Location = new System.Drawing.Point(52, 107);
+            this.lineWidthSpinEdit.Name = "lineWidthSpinEdit";
+            this.lineWidthSpinEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lineWidthSpinEdit.Properties.IsFloatValue = false;
+            this.lineWidthSpinEdit.Properties.Mask.EditMask = "N00";
+            this.lineWidthSpinEdit.Size = new System.Drawing.Size(101, 20);
+            this.lineWidthSpinEdit.TabIndex = 43;
+            this.lineWidthSpinEdit.EditValueChanged += new System.EventHandler(this.lineWidthSpinEdit_EditValueChanged);
+            // 
+            // labelControl15
+            // 
+            this.labelControl15.Location = new System.Drawing.Point(10, 110);
+            this.labelControl15.Name = "labelControl15";
+            this.labelControl15.Size = new System.Drawing.Size(36, 14);
+            this.labelControl15.TabIndex = 42;
+            this.labelControl15.Text = "宽度：";
             // 
             // label6
             // 
@@ -420,82 +617,12 @@
             this.fieldcheckedComboBoxEdit.TabIndex = 32;
             this.fieldcheckedComboBoxEdit.EditValueChanged += new System.EventHandler(this.fieldcheckedComboBoxEdit_EditValueChanged);
             // 
-            // seriesTransparencySpinEdit
-            // 
-            this.seriesTransparencySpinEdit.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.seriesTransparencySpinEdit.Location = new System.Drawing.Point(208, 140);
-            this.seriesTransparencySpinEdit.Name = "seriesTransparencySpinEdit";
-            this.seriesTransparencySpinEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.seriesTransparencySpinEdit.Properties.IsFloatValue = false;
-            this.seriesTransparencySpinEdit.Properties.Mask.EditMask = "N00";
-            this.seriesTransparencySpinEdit.Size = new System.Drawing.Size(101, 20);
-            this.seriesTransparencySpinEdit.TabIndex = 39;
-            this.seriesTransparencySpinEdit.EditValueChanged += new System.EventHandler(this.seriesTransparencySpinEdit_EditValueChanged);
-            // 
-            // labelControl18
-            // 
-            this.labelControl18.Location = new System.Drawing.Point(166, 143);
-            this.labelControl18.Name = "labelControl18";
-            this.labelControl18.Size = new System.Drawing.Size(48, 14);
-            this.labelControl18.TabIndex = 38;
-            this.labelControl18.Text = "透明度：";
-            // 
-            // lineWidthSpinEdit
-            // 
-            this.lineWidthSpinEdit.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.lineWidthSpinEdit.Location = new System.Drawing.Point(55, 141);
-            this.lineWidthSpinEdit.Name = "lineWidthSpinEdit";
-            this.lineWidthSpinEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lineWidthSpinEdit.Properties.IsFloatValue = false;
-            this.lineWidthSpinEdit.Properties.Mask.EditMask = "N00";
-            this.lineWidthSpinEdit.Size = new System.Drawing.Size(101, 20);
-            this.lineWidthSpinEdit.TabIndex = 26;
-            this.lineWidthSpinEdit.EditValueChanged += new System.EventHandler(this.lineWidthSpinEdit_EditValueChanged);
-            // 
-            // labelControl15
-            // 
-            this.labelControl15.Location = new System.Drawing.Point(13, 144);
-            this.labelControl15.Name = "labelControl15";
-            this.labelControl15.Size = new System.Drawing.Size(36, 14);
-            this.labelControl15.TabIndex = 25;
-            this.labelControl15.Text = "宽度：";
-            // 
-            // lineColorLabelControl
-            // 
-            this.lineColorLabelControl.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lineColorLabelControl.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.lineColorLabelControl.Location = new System.Drawing.Point(72, 106);
-            this.lineColorLabelControl.Name = "lineColorLabelControl";
-            this.lineColorLabelControl.Size = new System.Drawing.Size(25, 19);
-            this.lineColorLabelControl.TabIndex = 37;
-            this.lineColorLabelControl.Text = "     ";
-            // 
             // lineColorSettingButton
             // 
-            this.lineColorSettingButton.Location = new System.Drawing.Point(220, 102);
+            this.lineColorSettingButton.Location = new System.Drawing.Point(0, 0);
             this.lineColorSettingButton.Name = "lineColorSettingButton";
-            this.lineColorSettingButton.Size = new System.Drawing.Size(40, 23);
-            this.lineColorSettingButton.TabIndex = 36;
-            this.lineColorSettingButton.Text = "设置";
-            this.lineColorSettingButton.Click += new System.EventHandler(this.lineColorSettingButton_Click);
-            // 
-            // labelControl17
-            // 
-            this.labelControl17.Location = new System.Drawing.Point(11, 107);
-            this.labelControl17.Name = "labelControl17";
-            this.labelControl17.Size = new System.Drawing.Size(60, 14);
-            this.labelControl17.TabIndex = 35;
-            this.labelControl17.Text = "线条颜色：";
+            this.lineColorSettingButton.Size = new System.Drawing.Size(75, 23);
+            this.lineColorSettingButton.TabIndex = 41;
             // 
             // seriesColorLabelControl
             // 
@@ -503,7 +630,7 @@
             this.seriesColorLabelControl.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.seriesColorLabelControl.Location = new System.Drawing.Point(72, 86);
             this.seriesColorLabelControl.Name = "seriesColorLabelControl";
-            this.seriesColorLabelControl.Size = new System.Drawing.Size(25, 19);
+            this.seriesColorLabelControl.Size = new System.Drawing.Size(27, 21);
             this.seriesColorLabelControl.TabIndex = 34;
             this.seriesColorLabelControl.Text = "     ";
             // 
@@ -559,7 +686,7 @@
             this.groupControl5.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupControl5.Location = new System.Drawing.Point(0, 381);
             this.groupControl5.Name = "groupControl5";
-            this.groupControl5.Size = new System.Drawing.Size(309, 111);
+            this.groupControl5.Size = new System.Drawing.Size(308, 111);
             this.groupControl5.TabIndex = 10;
             this.groupControl5.Text = "图例设置";
             // 
@@ -687,7 +814,7 @@
             this.groupControl2.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupControl2.Location = new System.Drawing.Point(0, 221);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(309, 160);
+            this.groupControl2.Size = new System.Drawing.Size(308, 160);
             this.groupControl2.TabIndex = 8;
             this.groupControl2.Text = "标注设置";
             // 
@@ -842,7 +969,7 @@
             this.groupControl3.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupControl3.Location = new System.Drawing.Point(0, 107);
             this.groupControl3.Name = "groupControl3";
-            this.groupControl3.Size = new System.Drawing.Size(309, 114);
+            this.groupControl3.Size = new System.Drawing.Size(308, 114);
             this.groupControl3.TabIndex = 7;
             this.groupControl3.Text = "标题设置";
             // 
@@ -911,17 +1038,40 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl2.Location = new System.Drawing.Point(0, 41);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(313, 681);
+            this.panelControl2.Size = new System.Drawing.Size(313, 990);
             this.panelControl2.TabIndex = 1;
             // 
-            // RadarParameterPanel
+            // groupControl7
+            // 
+            this.groupControl7.Controls.Add(this.bottomTitleLabelControlText);
+            this.groupControl7.Controls.Add(this.simpleButton3);
+            this.groupControl7.Controls.Add(this.bottomTitleLabelControl);
+            this.groupControl7.Controls.Add(this.bottomTitleTextEdit);
+            this.groupControl7.Controls.Add(this.bottomTittleCheckEdit);
+            this.groupControl7.Controls.Add(this.bottomTitleSimpleButton);
+            this.groupControl7.Controls.Add(this.labelControl17);
+            this.groupControl7.Controls.Add(this.labelControl20);
+            this.groupControl7.Location = new System.Drawing.Point(0, 846);
+            this.groupControl7.Name = "groupControl7";
+            this.groupControl7.Size = new System.Drawing.Size(306, 238);
+            this.groupControl7.TabIndex = 49;
+            this.groupControl7.Text = "数据设置";
+            // 
+            // simpleButton3
+            // 
+            this.simpleButton3.Location = new System.Drawing.Point(0, 0);
+            this.simpleButton3.Name = "simpleButton3";
+            this.simpleButton3.Size = new System.Drawing.Size(75, 23);
+            this.simpleButton3.TabIndex = 41;
+            // 
+            // LineParameterPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(313, 722);
+            this.ClientSize = new System.Drawing.Size(313, 1031);
             this.Controls.Add(this.panelControl2);
             this.Controls.Add(this.panelControl1);
-            this.Name = "RadarParameterPanel";
+            this.Name = "LineParameterPanel";
             this.Text = "统计图参数面板";
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
@@ -934,12 +1084,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.num_chartHeight.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_chartWidth.Properties)).EndInit();
             this.xtraScrollableControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl6)).EndInit();
+            this.groupControl6.ResumeLayout(false);
+            this.groupControl6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bottomTitleTextEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bottomTittleCheckEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pointerComboBoxEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pointerWidthSpinEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pointerCheckEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.smoothedCheckEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSettings)).EndInit();
             this.dataSettings.ResumeLayout(false);
             this.dataSettings.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.fieldcheckedComboBoxEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.seriesTransparencySpinEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lineWidthSpinEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fieldcheckedComboBoxEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.combo_labelField.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl5)).EndInit();
             this.groupControl5.ResumeLayout(false);
@@ -962,6 +1120,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.txt_title.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl7)).EndInit();
+            this.groupControl7.ResumeLayout(false);
+            this.groupControl7.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1023,19 +1184,32 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private DevExpress.XtraEditors.GroupControl dataSettings;
-        private DevExpress.XtraEditors.SpinEdit seriesTransparencySpinEdit;
-        private DevExpress.XtraEditors.LabelControl labelControl18;
-        private DevExpress.XtraEditors.SpinEdit lineWidthSpinEdit;
-        private DevExpress.XtraEditors.LabelControl labelControl15;
-        private DevExpress.XtraEditors.LabelControl lineColorLabelControl;
         private DevExpress.XtraEditors.SimpleButton lineColorSettingButton;
-        private DevExpress.XtraEditors.LabelControl labelControl17;
         private DevExpress.XtraEditors.LabelControl seriesColorLabelControl;
         private System.Windows.Forms.Label label8;
         private DevExpress.XtraEditors.SimpleButton seriesColorSettingButton;
         private DevExpress.XtraEditors.LabelControl labelControl19;
         private DevExpress.XtraEditors.CheckedComboBoxEdit fieldcheckedComboBoxEdit;
         private System.Windows.Forms.Label label6;
+        private DevExpress.XtraEditors.CheckEdit smoothedCheckEdit;
+        private DevExpress.XtraEditors.GroupControl groupControl6;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.SpinEdit lineWidthSpinEdit;
+        private DevExpress.XtraEditors.LabelControl labelControl15;
+        private DevExpress.XtraEditors.CheckEdit pointerCheckEdit;
+        private DevExpress.XtraEditors.SpinEdit pointerWidthSpinEdit;
+        private DevExpress.XtraEditors.LabelControl labelControl3;
+        private System.Windows.Forms.Label label7;
+        private DevExpress.XtraEditors.ComboBoxEdit pointerComboBoxEdit;
+        private DevExpress.XtraEditors.CheckEdit bottomTittleCheckEdit;
+        private DevExpress.XtraEditors.TextEdit bottomTitleTextEdit;
+        private DevExpress.XtraEditors.LabelControl labelControl17;
+        private DevExpress.XtraEditors.LabelControl bottomTitleLabelControl;
+        private DevExpress.XtraEditors.SimpleButton bottomTitleSimpleButton;
+        private DevExpress.XtraEditors.LabelControl labelControl20;
+        private DevExpress.XtraEditors.LabelControl bottomTitleLabelControlText;
+        private DevExpress.XtraEditors.GroupControl groupControl7;
+        private DevExpress.XtraEditors.SimpleButton simpleButton3;
 
 
 

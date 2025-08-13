@@ -20,16 +20,17 @@ using ESRI.ArcGIS.Carto;
 using ESRI.ArcGIS.Geometry;
 using Svg;
 using Svg.Transforms;
+using Line = Steema.TeeChart.Styles.Line;
 
 namespace SMGI.Plugin.ThematicChart.TeeChart.PieChart
 {
-    public partial class RadarParameterPanel : Form
+    public partial class LineParameterPanel : Form
     {
         private GApplication m_Application;
         /// <summary>
-        /// 雷达图设置参数模型
+        /// 折线图设置参数模型
         /// </summary>
-        private RadarChartModel m_RadarChartModel;
+        private LineChartModel m_LineChartModel;
 
         /// <summary>
         /// 是否显示
@@ -46,17 +47,17 @@ namespace SMGI.Plugin.ThematicChart.TeeChart.PieChart
 
         TChart chart = new TChart();
 
-        public RadarParameterPanel(GApplication app,RadarChartModel pcm=null)
+        public LineParameterPanel(GApplication app,LineChartModel pcm=null)
         {
             InitializeComponent();
             m_Application = app;
             if (pcm == null)
             {
-                m_RadarChartModel = new RadarChartModel();
+                m_LineChartModel = new LineChartModel();
 
             }
             else {
-                m_RadarChartModel = pcm;
+                m_LineChartModel = pcm;
             }
 
             m_ChartForm = new ChartForm();
@@ -77,58 +78,58 @@ namespace SMGI.Plugin.ThematicChart.TeeChart.PieChart
         /// </summary>
         private void initUIParam(){
            //通用设置
-            this.num_chartWidth.Value = (decimal)this.m_RadarChartModel.Width;
-            this.num_chartHeight.Value = (decimal)this.m_RadarChartModel.Height;
-           this.check_3d.Checked = this.m_RadarChartModel.View3D;
-           this.check_ring.Checked = this.m_RadarChartModel.ViewRing;
-           this.num_radius.Value = (decimal)this.m_RadarChartModel.CustomRadius;
+            this.num_chartWidth.Value = (decimal)this.m_LineChartModel.Width;
+            this.num_chartHeight.Value = (decimal)this.m_LineChartModel.Height;
+           this.check_3d.Checked = this.m_LineChartModel.View3D;
+           this.check_ring.Checked = this.m_LineChartModel.ViewRing;
+           this.num_radius.Value = (decimal)this.m_LineChartModel.CustomRadius;
            //标题设置
-           this.check_title.Checked = this.m_RadarChartModel.Title.Visible;
+           this.check_title.Checked = this.m_LineChartModel.Title.Visible;
            this.check_title_CheckedChanged(this.check_title, EventArgs.Empty);
-           this.txt_title.Text = this.m_RadarChartModel.Title.Text;
-           this.label_titleStyle.Text = this.m_RadarChartModel.Title.Font.ToString();
-           this.label_titleColor.BackColor = this.m_RadarChartModel.Title.Font.Color;
+           this.txt_title.Text = this.m_LineChartModel.Title.Text;
+           this.label_titleStyle.Text = this.m_LineChartModel.Title.Font.ToString();
+           this.label_titleColor.BackColor = this.m_LineChartModel.Title.Font.Color;
 
            //标注设置
-           this.check_label.Checked = this.m_RadarChartModel.RadarLabel.Visible;
+           this.check_label.Checked = this.m_LineChartModel.LineLabel.Visible;
            this.check_label_CheckedChanged(this.check_label, EventArgs.Empty);
-           this.label_labelStyle.Text = this.m_RadarChartModel.RadarLabel.Font.ToString();
-           this.label_labelStyle.ForeColor = this.m_RadarChartModel.RadarLabel.Font.Color;
-           this.combo_labelStyle.SelectedItem = Enum.GetName(typeof(LabelStyle), this.m_RadarChartModel.RadarLabel.LabelStyle);
-           this.label_labelStyle.Text = this.m_RadarChartModel.RadarLabel.Font.ToString();
-           this.label_labelColor.BackColor = this.m_RadarChartModel.RadarLabel.Font.Color;
-           if (this.m_RadarChartModel.DataTable != null)
+           this.label_labelStyle.Text = this.m_LineChartModel.LineLabel.Font.ToString();
+           this.label_labelStyle.ForeColor = this.m_LineChartModel.LineLabel.Font.Color;
+           this.combo_labelStyle.SelectedItem = Enum.GetName(typeof(LabelStyle), this.m_LineChartModel.LineLabel.LabelStyle);
+           this.label_labelStyle.Text = this.m_LineChartModel.LineLabel.Font.ToString();
+           this.label_labelColor.BackColor = this.m_LineChartModel.LineLabel.Font.Color;
+           if (this.m_LineChartModel.DataTable != null)
            {
-               DataTable dt = this.m_RadarChartModel.DataTable;
+               DataTable dt = this.m_LineChartModel.DataTable;
                for (int i = 1; i < dt.Columns.Count; i++)
                {
                    this.combo_labelField.Properties.Items.Add(dt.Columns[i].ColumnName);
                }
            }
-           this.combo_labelField.SelectedItem = this.m_RadarChartModel.RadarLabel.LebelField;
+           this.combo_labelField.SelectedItem = this.m_LineChartModel.LineLabel.LebelField;
            //引线设置
-           this.check_leadline.Checked = this.m_RadarChartModel.RadarLabel.LeadLabel;
+           this.check_leadline.Checked = this.m_LineChartModel.LineLabel.LeadLabel;
            this.check_leadline_CheckedChanged(check_leadline, EventArgs.Empty);
-           this.num_leadlineLength.Value = (decimal)this.m_RadarChartModel.RadarLabel.LeadlineLength;
-           this.num_leadlineHorizonLength.Value = (decimal)this.m_RadarChartModel.RadarLabel.LeadlineHorizonLength;
+           this.num_leadlineLength.Value = (decimal)this.m_LineChartModel.LineLabel.LeadlineLength;
+           this.num_leadlineHorizonLength.Value = (decimal)this.m_LineChartModel.LineLabel.LeadlineHorizonLength;
            //扇区设置
            List<string> sectorNames = new List<string>();
-           for (int i = 0; i < this.m_RadarChartModel.Sectors.Count; i++)
+           for (int i = 0; i < this.m_LineChartModel.Sectors.Count; i++)
            {
-               var sector = this.m_RadarChartModel.Sectors[i];
+               var sector = this.m_LineChartModel.Sectors[i];
                sectorNames.Add(sector.Name);
            }
            //this.combo_sector.Properties.Items.AddRange(sectorNames);
            //this.combo_sector_SelectedIndexChanged(this.combo_sector, EventArgs.Empty);
            //图例设置
-           this.check_legend.Checked = this.m_RadarChartModel.Legend.Visible;
+           this.check_legend.Checked = this.m_LineChartModel.Legend.Visible;
            this.check_legend_CheckedChanged(this.check_legend, EventArgs.Empty);
-           this.combo_legendPositon.SelectedItem = Enum.GetName(typeof(LegendPostion), this.m_RadarChartModel.Legend.Postion);
-           this.num_legendCol.Value = this.m_RadarChartModel.Legend.colNum;
-           this.label_legendStyle.Text = this.m_RadarChartModel.Legend.Font.ToString();
-           this.label_legendColor.BackColor = this.m_RadarChartModel.Legend.Font.Color;
+           this.combo_legendPositon.SelectedItem = Enum.GetName(typeof(LegendPostion), this.m_LineChartModel.Legend.Postion);
+           this.num_legendCol.Value = this.m_LineChartModel.Legend.colNum;
+           this.label_legendStyle.Text = this.m_LineChartModel.Legend.Font.ToString();
+           this.label_legendColor.BackColor = this.m_LineChartModel.Legend.Font.Color;
             //其他设置
-           if (this.m_RadarChartModel.DataTable != null)
+           if (this.m_LineChartModel.DataTable != null)
            {
                this.btn_apply.Enabled = true;
                this.btn_chartin.Enabled = true;
@@ -161,30 +162,30 @@ namespace SMGI.Plugin.ThematicChart.TeeChart.PieChart
         private void num_chartWidth_EditValueChanged(object sender, EventArgs e)
         {
             decimal val = (sender as DevExpress.XtraEditors.SpinEdit).Value;
-            this.m_RadarChartModel.Width = (double)(sender as DevExpress.XtraEditors.SpinEdit).Value;
+            this.m_LineChartModel.Width = (double)(sender as DevExpress.XtraEditors.SpinEdit).Value;
             this.num_radius.Value = 0;
         }
 
         private void num_chartHeight_EditValueChanged(object sender, EventArgs e)
         {
-            this.m_RadarChartModel.Height = (double)(sender as DevExpress.XtraEditors.SpinEdit).Value;
+            this.m_LineChartModel.Height = (double)(sender as DevExpress.XtraEditors.SpinEdit).Value;
             this.num_radius.Value = 0;
         }
 
         private void check_3d_CheckedChanged(object sender, EventArgs e)
         {
-            this.m_RadarChartModel.View3D = this.check_3d.Checked;
+            this.m_LineChartModel.View3D = this.check_3d.Checked;
         }
 
         private void check_ring_CheckedChanged(object sender, EventArgs e)
         {
-            this.m_RadarChartModel.ViewRing = this.check_ring.Checked;
+            this.m_LineChartModel.ViewRing = this.check_ring.Checked;
         }
         #endregion
         #region 标题设置
         private void check_title_CheckedChanged(object sender, EventArgs e)
         {
-            this.m_RadarChartModel.Title.Visible = this.check_title.Checked;
+            this.m_LineChartModel.Title.Visible = this.check_title.Checked;
             if (this.check_title.Checked)
             {
                 this.txt_title.Enabled = true;
@@ -199,18 +200,18 @@ namespace SMGI.Plugin.ThematicChart.TeeChart.PieChart
 
         private void txt_title_EditValueChanged(object sender, EventArgs e)
         {
-            this.m_RadarChartModel.Title.Text = this.txt_title.Text;
+            this.m_LineChartModel.Title.Text = this.txt_title.Text;
         }
 
         private void btn_titleStyle_Click(object sender, EventArgs e)
         {
-            FontColorForm fcf = new FontColorForm(this.m_RadarChartModel.Title.Font);
+            FontColorForm fcf = new FontColorForm(this.m_LineChartModel.Title.Font);
             fcf.ShowInTaskbar = false;
             fcf.ShowIcon = false;
             fcf.StartPosition = FormStartPosition.CenterScreen;
             if (fcf.ShowDialog() == DialogResult.OK)
             {
-                this.m_RadarChartModel.Title.Font = fcf.sFont;
+                this.m_LineChartModel.Title.Font = fcf.sFont;
                 this.label_titleStyle.Text = fcf.sFont.ToString();
                 this.label_titleColor.BackColor = fcf.sFont.Color;
             }
@@ -219,7 +220,7 @@ namespace SMGI.Plugin.ThematicChart.TeeChart.PieChart
         #region 标注设置
         private void check_label_CheckedChanged(object sender, EventArgs e)
         {
-            this.m_RadarChartModel.RadarLabel.Visible = this.check_label.Checked;
+            this.m_LineChartModel.LineLabel.Visible = this.check_label.Checked;
             if (this.check_label.Checked)
             {
                 this.combo_labelField.Enabled = true;
@@ -240,24 +241,24 @@ namespace SMGI.Plugin.ThematicChart.TeeChart.PieChart
         {
             if (this.combo_labelField.SelectedItem == null)
                 return;
-            this.m_RadarChartModel.RadarLabel.LebelField = this.combo_labelField.SelectedItem.ToString();
+            this.m_LineChartModel.LineLabel.LebelField = this.combo_labelField.SelectedItem.ToString();
         }
 
         private void combo_labelStyle_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (this.combo_labelStyle.SelectedItem == null)
                 return;
-            this.m_RadarChartModel.RadarLabel.LabelStyle = (LabelStyle)Enum.Parse(typeof(LabelStyle), this.combo_labelStyle.SelectedItem.ToString()); 
+            this.m_LineChartModel.LineLabel.LabelStyle = (LabelStyle)Enum.Parse(typeof(LabelStyle), this.combo_labelStyle.SelectedItem.ToString()); 
         }
 
         private void btn_labelStyle_Click(object sender, EventArgs e)
         {
-            FontColorForm fcf = new FontColorForm(this.m_RadarChartModel.RadarLabel.Font);
+            FontColorForm fcf = new FontColorForm(this.m_LineChartModel.LineLabel.Font);
             fcf.ShowInTaskbar = false;
             fcf.ShowIcon = false;
             fcf.StartPosition = FormStartPosition.CenterScreen;
             if (fcf.ShowDialog() == DialogResult.OK) {
-                this.m_RadarChartModel.RadarLabel.Font = fcf.sFont;
+                this.m_LineChartModel.LineLabel.Font = fcf.sFont;
                 this.label_labelStyle.Text = fcf.sFont.ToString();
                 this.label_labelColor.BackColor = fcf.sFont.Color;
             }
@@ -266,7 +267,7 @@ namespace SMGI.Plugin.ThematicChart.TeeChart.PieChart
 
         private void check_leadline_CheckedChanged(object sender, EventArgs e)
         {
-            this.m_RadarChartModel.RadarLabel.LeadLabel = this.check_leadline.Checked;
+            this.m_LineChartModel.LineLabel.LeadLabel = this.check_leadline.Checked;
             if (this.check_leadline.Checked)
             {
                 this.num_leadlineLength.Enabled = true;
@@ -281,23 +282,23 @@ namespace SMGI.Plugin.ThematicChart.TeeChart.PieChart
 
         private void num_radius_EditValueChanged(object sender, EventArgs e)
         {
-            if ((int)this.num_radius.Value > this.m_RadarChartModel.Radius)
+            if ((int)this.num_radius.Value > this.m_LineChartModel.Radius)
             {
                 MessageBox.Show("自定义半径不能大于自适应半径");
-                this.num_radius.Value = (decimal)this.m_RadarChartModel.Radius;
+                this.num_radius.Value = (decimal)this.m_LineChartModel.Radius;
                 return;
             }
-            this.m_RadarChartModel.CustomRadius = (double)this.num_radius.Value;
+            this.m_LineChartModel.CustomRadius = (double)this.num_radius.Value;
         }
 
         private void num_leadlineLength_EditValueChanged(object sender, EventArgs e)
         {
-            this.m_RadarChartModel.RadarLabel.LeadlineLength = (double)this.num_leadlineLength.Value;
+            this.m_LineChartModel.LineLabel.LeadlineLength = (double)this.num_leadlineLength.Value;
         }
 
         private void num_leadlineHorizonLength_EditValueChanged(object sender, EventArgs e)
         {
-            this.m_RadarChartModel.RadarLabel.LeadlineHorizonLength = (double)this.num_leadlineHorizonLength.Value;
+            this.m_LineChartModel.LineLabel.LeadlineHorizonLength = (double)this.num_leadlineHorizonLength.Value;
         }
         
         #endregion
@@ -305,7 +306,7 @@ namespace SMGI.Plugin.ThematicChart.TeeChart.PieChart
         #region 图例设置
         private void check_legend_CheckedChanged(object sender, EventArgs e)
         {
-            this.m_RadarChartModel.Legend.Visible = this.check_legend.Checked;
+            this.m_LineChartModel.Legend.Visible = this.check_legend.Checked;
             if (this.check_legend.Checked){
                 this.combo_legendPositon.Enabled = true;
                 this.num_legendCol.Enabled = true;
@@ -320,22 +321,22 @@ namespace SMGI.Plugin.ThematicChart.TeeChart.PieChart
         {
             if (this.combo_legendPositon.SelectedItem==null)
                 return;
-            this.m_RadarChartModel.Legend.Postion = (LegendPostion)Enum.Parse(typeof(LegendPostion), this.combo_legendPositon.SelectedItem.ToString());
+            this.m_LineChartModel.Legend.Postion = (LegendPostion)Enum.Parse(typeof(LegendPostion), this.combo_legendPositon.SelectedItem.ToString());
         }
         private void num_legendCol_EditValueChanged(object sender, EventArgs e)
         {
-            this.m_RadarChartModel.Legend.colNum = (int)this.num_legendCol.Value;
+            this.m_LineChartModel.Legend.colNum = (int)this.num_legendCol.Value;
         }
 
         private void btn_legendStyle_Click(object sender, EventArgs e)
         {
-            FontColorForm fcf = new FontColorForm(this.m_RadarChartModel.Legend.Font);
+            FontColorForm fcf = new FontColorForm(this.m_LineChartModel.Legend.Font);
             fcf.ShowInTaskbar = false;
             fcf.ShowIcon = false;
             fcf.StartPosition = FormStartPosition.CenterScreen;
             if (fcf.ShowDialog() == DialogResult.OK)
             {
-                this.m_RadarChartModel.Legend.Font = fcf.sFont;
+                this.m_LineChartModel.Legend.Font = fcf.sFont;
                 this.label_legendStyle.Text = fcf.sFont.ToString();
                 this.label_legendColor.BackColor = fcf.sFont.Color;
             }
@@ -350,12 +351,12 @@ namespace SMGI.Plugin.ThematicChart.TeeChart.PieChart
 
         private void btn_apply_Click(object sender, EventArgs e)
         {
-            this.Draw(this.m_RadarChartModel);
+            this.Draw(this.m_LineChartModel);
         }
 
         private void btn_loadData_Click(object sender, EventArgs e)
         {
-            if (this.m_RadarChartModel.DataTable != null)
+            if (this.m_LineChartModel.DataTable != null)
             {
                 DialogResult dialogResult = MessageBox.Show("统计图已有数据，是否要重新加载？", "提示", MessageBoxButtons.YesNo);
                 if (dialogResult == System.Windows.Forms.DialogResult.No)
@@ -382,9 +383,9 @@ namespace SMGI.Plugin.ThematicChart.TeeChart.PieChart
             }
             //this.combo_sector.Properties.Items.Clear();
             //this.combo_sector.Properties.Items.AddRange(sectorNames);
-            this.m_RadarChartModel.DataTable = dt;
+            this.m_LineChartModel.DataTable = dt;
 
-            m_RadarChartModel.AreaTypes = fieldNames;
+            m_LineChartModel.AreaTypes = fieldNames;
 
             this.btn_apply_Click(this.btn_apply, EventArgs.Empty);
             this.btn_apply.Enabled = true;
@@ -392,37 +393,38 @@ namespace SMGI.Plugin.ThematicChart.TeeChart.PieChart
             this.btn_export.Enabled = true;
         }
 
-        private void SetupRadarSeries(
-    List<Radar> seriesList,
+        private void SetupLineSeries(
+    List<Line> seriesList,
     List<string> fields,
     List<DataTable> dataTables,
-    List<RadarLabel> pieLabels,
+    List<LineLabel> pieLabels,
     List<Color> fillColors,
-    List<Color> lineColors,
+    MarksStyles marksStyles,
     List<int> lineWidths,
-    MarksStyles marksStyles
+    List<int> pointerWidths,
+    bool smoothed,
+    bool pointer,
+    PointerStyles pointerStyles
 )
         {
             int count = seriesList.Count;
 
             for (int i = 0; i < count; i++)
             {
-                Radar series = seriesList[i];
+                Line series = seriesList[i];
 
                 // 如果列表只有一个元素，则用这个唯一值
                 string field = fields.Count == 1 ? fields[0] : fields[i];
                 DataTable dataTable = dataTables.Count == 1 ? dataTables[0] : dataTables[i];
-                RadarLabel pieLabel = pieLabels.Count == 1 ? pieLabels[0] : pieLabels[i];
+                LineLabel pieLabel = pieLabels.Count == 1 ? pieLabels[0] : pieLabels[i];
                 Color fillColor = fillColors.Count == 1 ? fillColors[0] : fillColors[i];
-                Color lineColor = lineColors.Count == 1 ? lineColors[0] : lineColors[i];
                 int lineWidth = lineWidths.Count == 1 ? lineWidths[0] : lineWidths[i];
+                int pointerWidth = pointerWidths.Count == 1 ? pointerWidths[0] : pointerWidths[i];
 
                 // 原有逻辑
                 series.Title = field;
 
-                series.Circled = true;
                 series.ColorEach = false;
-                series.RotationAngle = 0;
 
                 series.Marks.Transparent = true;
                 series.Marks.Visible = pieLabel.Visible;
@@ -439,29 +441,13 @@ namespace SMGI.Plugin.ThematicChart.TeeChart.PieChart
                     series.Add(value, label, fillColor);
                 }
 
-                series.Pen.Color = lineColor;
-                series.Pen.Width = lineWidth;
+                series.Smoothed = smoothed;
+                series.LinePen.Width = lineWidth;
+                series.Pointer.Visible = pointer;
+                series.Pointer.VertSize = pointerWidth;
+                series.Pointer.HorizSize = pointerWidth;
+                series.Pointer.Style = pointerStyles;
             }
-        }
-
-        /// <summary>
-        /// 根据百分比透明度生成颜色（0 = 全透明, 100 = 不透明）
-        /// 忽略 baseColor 自带的 Alpha 值
-        /// </summary>
-        private Color ColorFromTransparencyAndBaseColor(int transparencyPercent_0_100, Color baseColor)
-        {
-            // 限制范围
-            int percent = Math.Max(0, Math.Min(100, transparencyPercent_0_100));
-
-            // 0% -> 255 (完全透明), 100% -> 0 (完全不透明)
-            int alpha = 255 - (percent * 255 / 100);
-
-            return Color.FromArgb(
-                alpha,
-                baseColor.R,
-                baseColor.G,
-                baseColor.B
-            );
         }
 
         // 初始化 CheckedComboBoxEdit 候选项
@@ -469,7 +455,7 @@ namespace SMGI.Plugin.ThematicChart.TeeChart.PieChart
         {
             fieldcheckedComboBoxEdit.Properties.Items.Clear();
 
-            foreach (Radar s in chart.Series)
+            foreach (Line s in chart.Series)
             {
                 string displayName = s.Title;
 
@@ -486,7 +472,7 @@ namespace SMGI.Plugin.ThematicChart.TeeChart.PieChart
         /// 绘制雷达统计图
         /// </summary>
         /// <param name="model">数据模型</param>
-        private void Draw(RadarChartModel model)
+        private void Draw(LineChartModel model)
         {
             if (this.m_Chart != null && !this.m_Chart.IsDisposed)
             {
@@ -510,6 +496,29 @@ namespace SMGI.Plugin.ThematicChart.TeeChart.PieChart
             this.m_ChartForm.Width = (int)Util.CentimeterToPixel(model.Width) + 16;//16为补充form容器的边框宽度，从而保证TChart尺寸的正确性
             this.m_ChartForm.Height = (int)Util.CentimeterToPixel(model.Height) + 39;//39为补充form容器的边框高度，从而保证TChart尺寸的正确性
             chart.Aspect.View3D = model.View3D;
+
+            #region 底部标题
+
+            chart.Axes.Bottom.Title.Visible = model.BottomTitle.Visible;
+            chart.Axes.Bottom.Title.Text = model.BottomTitle.Text;
+            chart.Header.Font.Name = model.BottomTitle.Font.Font.Name;
+            chart.Axes.Bottom.Title.Font.Size = Convert.ToInt32(model.BottomTitle.Font.Font.Size);
+            if (model.BottomTitle.Font.Style == FontStyle.Bold)
+            {
+                chart.Axes.Bottom.Title.Font.Bold = true;
+            }
+            else if (model.BottomTitle.Font.Style == FontStyle.Italic)
+            {
+                chart.Axes.Bottom.Title.Font.Italic = true;
+            }
+            else if (model.BottomTitle.Font.Style == FontStyle.Regular)
+            {
+                chart.Axes.Bottom.Title.Font.Bold = false;
+                chart.Axes.Bottom.Title.Font.Italic = false;
+            }
+            chart.Axes.Bottom.Title.Font.Color = model.BottomTitle.Font.Color;
+
+            #endregion
 
             #region 标题
 
@@ -542,7 +551,7 @@ namespace SMGI.Plugin.ThematicChart.TeeChart.PieChart
             MarksStyles marksStyles = MarksStyles.Value;
 
             //设置标注样式方式（依赖库本身然后获取）
-            switch (model.RadarLabel.LabelStyle)
+            switch (model.LineLabel.LabelStyle)
             {
                 case LabelStyle.数值:
                     marksStyles = MarksStyles.Value;
@@ -566,71 +575,77 @@ namespace SMGI.Plugin.ThematicChart.TeeChart.PieChart
             if (chart.Series.Count == 0)
             {
                 // 创建存储多个参数的 List
-                List<Radar> seriesList = new List<Radar>();
+                List<Line> seriesList = new List<Line>();
                 List<string> fields = new List<string>();
                 List<DataTable> dataTables = new List<DataTable>();
-                List<RadarLabel> pieLabels = new List<RadarLabel>();
+                List<LineLabel> pieLabels = new List<LineLabel>();
                 List<Color> fillColors = new List<Color>();
-                List<Color> lineColors = new List<Color>();
                 List<int> lineWidths = new List<int>();
+                List<int> pointerWidths = new List<int>();
 
                 // 批量收集
                 for (int i = 0; i < model.AreaTypes.Count; i++)
                 {
                     string field = model.AreaTypes[i].ToString();
 
-                    Radar series = new Radar();
+                    Line series = new Line();
                     chart.Series.Add(series);
 
                     seriesList.Add(series);
                     fields.Add(field);
                     dataTables.Add(model.DataTable);
-                    pieLabels.Add(model.RadarLabel);
-                    fillColors.Add(Color.FromArgb(model.SeriesTransparencyList[i], model.SeriesColorList[i]));
-                    lineColors.Add(model.LineColorList[i]);
+                    pieLabels.Add(model.LineLabel);
+                    fillColors.Add(Color.FromArgb(100, model.SeriesColorList[i]));
                     lineWidths.Add(model.LineWidthList[i]);
+                    pointerWidths.Add(model.PointerWidthList[i]);
                 }
 
                 // 一次性调用批量方法
-                SetupRadarSeries(
+                SetupLineSeries(
                     seriesList,
                     fields,
                     dataTables,
                     pieLabels,
                     fillColors,
-                    lineColors,
+                    marksStyles,
                     lineWidths,
-                    marksStyles
+                    pointerWidths,
+                    model.Smoothed,
+                    model.Pointer,
+                    model.PointerStyles
                 );
             }
-            else if (!string.IsNullOrEmpty(model.RadarLabel.LebelField)) // 后续调用时：仅修改指定区域
+            else if (!string.IsNullOrEmpty(model.LineLabel.LebelField)) // 后续调用时：仅修改指定区域
             {
-                foreach (Radar s in chart.Series)
+                foreach (Line s in chart.Series)
                 {
-                    if (s.Title == model.RadarLabel.LebelField)
+                    if (s.Title == model.LineLabel.LebelField)
                     {
                         // 准备只有一个元素的 List
-                        List<Radar> seriesList = new List<Radar> { s };
-                        List<string> fields = new List<string> { model.RadarLabel.LebelField };
+                        List<Line> seriesList = new List<Line> { s };
+                        List<string> fields = new List<string> { model.LineLabel.LebelField };
                         List<DataTable> dataTables = new List<DataTable> { model.DataTable };
-                        List<RadarLabel> pieLabels = new List<RadarLabel> { model.RadarLabel };
+                        List<LineLabel> pieLabels = new List<LineLabel> { model.LineLabel };
                         List<Color> fillColors = new List<Color> 
                         { 
-                            ColorFromTransparencyAndBaseColor(model.SeriesTransparencyList[model.Index], model.SeriesColorList[model.Index]) 
+                            model.SeriesColorList[model.Index]
                         };
-                        List<Color> lineColors = new List<Color> { model.LineColorList[model.Index] };
                         List<int> lineWidths = new List<int> { model.LineWidthList[model.Index] };
+                        List<int> pointerWidths = new List<int> { model.PointerWidthList[model.Index] };
 
                         // 调用批量方法
-                        SetupRadarSeries(
+                        SetupLineSeries(
                             seriesList,
                             fields,
                             dataTables,
                             pieLabels,
                             fillColors,
-                            lineColors,
+                            marksStyles,
                             lineWidths,
-                            marksStyles
+                            pointerWidths,
+                            model.Smoothed,
+                            model.Pointer,
+                            model.PointerStyles
                         );
 
                         break;
@@ -645,280 +660,6 @@ namespace SMGI.Plugin.ThematicChart.TeeChart.PieChart
 
             #endregion
 
-            #region 图例
-
-            foreach (Radar s in chart.Series)
-            {
-                //留白的尺寸
-                int blankSize = 10;
-                //定义个矩形范围，默认按照chart的大小来控制，默认左右上下都留白
-                Rectangle chartRect = new Rectangle()
-                {
-                    X = blankSize,
-                    Y = blankSize,
-                    Width = chart.Width - blankSize,
-                    Height = chart.Height - blankSize
-                };
-                if (model.CustomRadius != 0)
-                {
-                    s.CustomXRadius = (int)Util.CentimeterToPixel(model.CustomRadius);
-                }
-
-                //=========图例设置
-                chart.Legend.Visible = false;//关闭自带图例，采用手动计算
-                if (model.Legend.Visible)
-                {
-                    ChartLegend legend = model.Legend;
-                    #region 1、计算图例的尺寸（内部元素相对位置）
-                    legend.LegendItems.Clear();
-                    //1、获取Series的Label，计算尺寸
-                    int itemMaxWidth = 0;
-                    for (int i = 0; i < chart.Series.Count; i++)
-                    {
-                        Radar sc = chart.Series[i] as Radar;
-                        if (sc == null || sc.Active == false) continue;
-
-                        LegendItem li = new LegendItem();
-                        li.Text = sc.Title;
-                        //计算图例项的宽高
-                        SizeF sf = chart.Graphics3D.MeasureString(new ChartFont(chart.Chart, model.Legend.Font.Font), sc.Title);
-                        li.Width = (int)Math.Ceiling(sf.Width) + model.Legend.SymbolTextGap + model.Legend.SymbolWidth;//文本宽度+符号宽度+文本符号间隔宽度
-                        li.Height = (int)Math.Ceiling(sf.Height);//文本高度，颜色通过库自动赋值后，获取，先计算尺寸
-                        legend.LegendItems.Add(li);
-                        if (li.Width > itemMaxWidth)
-                        {
-                            itemMaxWidth = li.Width;
-                        }
-                    }
-                    int colNum = model.Legend.colNum;
-                    int average = legend.LegendItems.Count / colNum;//计算每列分配多少个item的平均数
-                    int mod = legend.LegendItems.Count % colNum;//计算平均数后的余数
-                    int[] colItemNums = new int[colNum];//计算每列item的个数
-                    for (int i = 0; i < colItemNums.Length; i++)
-                    {
-                        colItemNums[i] = average;
-                        if (mod != 0)
-                        {
-                            colItemNums[i] += 1;
-                            mod -= 1;
-                        }
-                    }
-
-                    //计算每个item的位置(Left,Top)，相对于Legend的（Left,Top），然后计算Symbol Rect
-                    int startIndex = 0;
-                    for (int i = 0; i < colItemNums.Length; i++)
-                    {
-                        int colItemNum = colItemNums[i];
-                        int left = 0;
-                        if (i != 0)
-                            left = i * itemMaxWidth + i * model.Legend.HorizonGap;
-                        for (int j = 0; j < colItemNum; j++)
-                        {
-                            LegendItem li = model.Legend.LegendItems[startIndex + j];
-                            int top = 0;
-                            if (j != 0)
-                                top = j * li.Height + j * model.Legend.VerticalGap;
-                            li.Left = left;
-                            li.Top = top;
-                            //计算Symbol Rect
-                            li.SymbolRect = new Rectangle()
-                            {
-                                X = left,
-                                Y = top,
-                                Width = model.Legend.SymbolWidth,
-                                Height = li.Height
-                            };
-                        }
-                        startIndex += colItemNum;
-                    }
-
-                    //计算整个Legend的长宽
-                    legend.Width = legend.LegendItems[0].Left + legend.LegendItems[legend.LegendItems.Count - 1].Left + itemMaxWidth;
-                    legend.Height = legend.LegendItems[0].Top + legend.LegendItems[colItemNums[0] - 1].Top + legend.LegendItems[0].Height;
-                    #endregion
-
-                    #region 2、计算图例的在容器中的位置，同时更新计算：图表（chartRect）的位置和范围
-                    int headerTop = model.Title.Top;
-                    int headerHeight = model.Title.Height;
-                    if (true)
-                    {
-                        headerTop = 0;
-                        headerHeight = 0;
-                    }
-                    switch (model.Legend.Postion)
-                    {
-                        case LegendPostion.顶部靠左:
-                            model.Legend.Top = headerTop + headerHeight + blankSize;
-                            model.Legend.Left = blankSize;
-                            //根据图例的最短边为参考，例如偏树直型，只做X方向限制，Y方向不受图例高度影响，水平型类似计算图表位置
-                            if (model.Legend.Width < model.Legend.Height)
-                            {
-                                chartRect.X = model.Legend.Left + model.Legend.Width;
-                                chartRect.Y = model.Title.Top + model.Title.Height + blankSize;
-                                chartRect.Width = chart.Width - chartRect.X - blankSize;
-                                chartRect.Height = chart.Height - chartRect.Y - blankSize;
-                            }
-                            else if (model.Legend.Width > model.Legend.Height)//偏水平型，只做Y方向限制，X方向不受图例宽度影响
-                            {
-                                chartRect.X = blankSize;
-                                chartRect.Y = model.Legend.Top + model.Legend.Height;
-                                chartRect.Width = chart.Width - chartRect.X - blankSize;
-                                chartRect.Height = chart.Height - chartRect.Y - blankSize;
-                            }
-                            else//都考虑
-                            {
-                                chartRect.X = model.Legend.Left + model.Legend.Width;
-                                chartRect.Y = model.Legend.Top + model.Legend.Height;
-                                chartRect.Width = chart.Width - chartRect.X - blankSize;
-                                chartRect.Height = chart.Height - chartRect.Y - blankSize;
-                            }
-                            break;
-                        case LegendPostion.顶部靠右:
-                            model.Legend.Top = headerTop + headerHeight + blankSize;
-                            model.Legend.Left = chart.Width - model.Legend.Width - blankSize;
-                            //根据图例的最短边为参考，例如偏树直型，只做X方向限制，Y方向不受图例高度影响，水平型类似计算图表位置
-                            if (model.Legend.Width < model.Legend.Height)
-                            {
-                                chartRect.X = blankSize;
-                                chartRect.Y = model.Title.Top + model.Title.Height + blankSize;
-                                chartRect.Width = chart.Width - chartRect.X - model.Legend.Width - blankSize;
-                                chartRect.Height = chart.Height - chartRect.Y - blankSize;
-                            }
-                            else if (model.Legend.Width > model.Legend.Height)//偏水平型，只做Y方向限制，X方向不受图例宽度影响
-                            {
-                                chartRect.X = blankSize;
-                                chartRect.Y = model.Legend.Top + model.Legend.Height + blankSize;
-                                chartRect.Width = chart.Width - chartRect.X - blankSize;
-                                chartRect.Height = chart.Height - chartRect.Y - blankSize;
-                            }
-                            else
-                            {//都考虑
-                                chartRect.X = 10;
-                                chartRect.Y = model.Legend.Top + model.Legend.Height + blankSize;
-                                chartRect.Width = chart.Width - chartRect.X - model.Legend.Width - blankSize;
-                                chartRect.Height = chart.Height - chartRect.Y - blankSize;
-                            }
-                            break;
-                        case LegendPostion.顶部居中:
-                            model.Legend.Top = headerTop + headerHeight + blankSize;
-                            model.Legend.Left = (chart.Width - model.Legend.Width) / 2;
-                            //计算图表位置
-                            chartRect.X = 10;
-                            chartRect.Y = model.Legend.Top + model.Legend.Height;
-                            chartRect.Width = chart.Width - blankSize;
-                            chartRect.Height = chart.Height - chartRect.Y - blankSize;
-                            break;
-                        case LegendPostion.底部靠左:
-                            model.Legend.Top = chart.Height - model.Legend.Height - blankSize;
-                            model.Legend.Left = blankSize;
-                            //根据图例的最短边为参考，例如偏树直型，只做X方向限制，Y方向不受图例高度影响，水平型类似计算图表位置
-                            if (model.Legend.Width < model.Legend.Height)
-                            {
-                                chartRect.X = model.Legend.Left + model.Legend.Width;
-                                chartRect.Y = model.Title.Top + model.Title.Height + blankSize;
-                                chartRect.Width = chart.Width - chartRect.X - blankSize;
-                                chartRect.Height = chart.Height - chartRect.Y - blankSize;
-                            }
-                            else if (model.Legend.Width > model.Legend.Height)//偏水平型，只做Y方向限制，X方向不受图例宽度影响
-                            {
-                                chartRect.X = blankSize;
-                                chartRect.Y = model.Title.Top + model.Title.Height + blankSize;
-                                chartRect.Width = chart.Width - chartRect.X - blankSize;
-                                chartRect.Height = chart.Height - chartRect.Y - model.Legend.Height - blankSize;
-                            }
-                            else
-                            {//都考虑
-                                chartRect.X = blankSize;
-                                chartRect.Y = model.Title.Top + model.Title.Height + blankSize;
-                                chartRect.Width = chart.Width - chartRect.X - blankSize;
-                                chartRect.Height = chart.Height - chartRect.Y - model.Legend.Height - blankSize;
-                            }
-                            break;
-                        case LegendPostion.底部居中:
-                            model.Legend.Top = chart.Height - model.Legend.Height - blankSize;
-                            model.Legend.Left = (chart.Width - model.Legend.Width) / 2;
-                            //计算图表位置
-                            chartRect.X = blankSize;
-                            chartRect.Y = (model.Title.Top + model.Title.Height) + blankSize;
-                            chartRect.Width = chart.Width - blankSize;
-                            chartRect.Height = chart.Height - chartRect.Y - model.Legend.Height - blankSize;
-                            break;
-                        case LegendPostion.底部靠右:
-                            model.Legend.Top = chart.Height - model.Legend.Height - blankSize;
-                            model.Legend.Left = chart.Width - model.Legend.Width - blankSize;
-                            //根据图例的最短边为参考，例如偏树直型，只做X方向限制，Y方向不受图例高度影响，水平型类似计算图表位置
-                            if (model.Legend.Width < model.Legend.Height)
-                            {
-                                chartRect.X = blankSize;
-                                chartRect.Y = model.Title.Top + model.Title.Height + blankSize;
-                                chartRect.Width = chart.Width - chartRect.X - model.Legend.Width - blankSize;
-                                chartRect.Height = chart.Height - chartRect.Y - blankSize;
-                            }
-                            else if (model.Legend.Width > model.Legend.Height)//偏水平型，只做Y方向限制，X方向不受图例宽度影响
-                            {
-                                chartRect.X = blankSize;
-                                chartRect.Y = model.Title.Top + model.Title.Height + blankSize;
-                                chartRect.Width = chart.Width - chartRect.X - blankSize;
-                                chartRect.Height = chart.Height - chartRect.Y - model.Legend.Height - blankSize;
-                            }
-                            else
-                            {//都考虑
-                                chartRect.X = blankSize;
-                                chartRect.Y = model.Title.Top + model.Title.Height + blankSize;
-                                chartRect.Width = chart.Width - chartRect.X - model.Legend.Width - blankSize;
-                                chartRect.Height = chart.Height - chartRect.Y - model.Legend.Height - blankSize;
-                            }
-                            break;
-                        case LegendPostion.左中:
-                            model.Legend.Top = (chart.Height - model.Legend.Height) / 2;
-                            model.Legend.Left = blankSize;
-                            //计算图表位置
-                            chartRect.X = model.Legend.Left + model.Legend.Width + blankSize;
-                            chartRect.Y = (model.Title.Top + model.Title.Height) + blankSize;
-                            chartRect.Width = chart.Width - chartRect.X - blankSize;
-                            chartRect.Height = chart.Height - chartRect.Y - blankSize;
-                            break;
-                        case LegendPostion.右中:
-                            model.Legend.Left = chart.Width - model.Legend.Width - blankSize;
-                            model.Legend.Top = (chart.Height - model.Legend.Height) / 2;
-                            //计算图表位置
-                            chartRect.X = 10;
-                            chartRect.Y = (model.Title.Top + model.Title.Height) + blankSize;
-                            chartRect.Width = chart.Width - chartRect.X - model.Legend.Width - blankSize;
-                            chartRect.Height = chart.Height - chartRect.Y - blankSize;
-                            break;
-                    }
-                    #endregion
-
-                    #region 废弃 Chart自带图例
-                    //chart.Legend.Visible = true;
-                    //chart.Legend.Inverted = true;
-                    //chart.Legend.Shadow.Visible = false;
-                    //chart.Legend.Transparent = true;
-                    //chart.Legend.ResizeChart = false;
-                    //chart.Legend.Symbol.Width = 15;
-                    //chart.Legend.Symbol.WidthUnits = LegendSymbolSize.Pixels;
-                    //chart.Legend.AutoSize = false;//设置成false，手动设置Legend的长宽，内部items进行自适应
-                    //chart.Legend.ColumnWidthAuto = true;
-                    //chart.Legend.MaxNumRows = 30;//取消行数限制
-                    ////chart.Legend.Items.Custom = true;
-                    //if (model.Legend.Sort == LegendSort.树直排列)
-                    //    chart.Legend.Alignment = LegendAlignments.Top;//左右时，该库会进行树直排列
-                    //if (model.Legend.Sort == LegendSort.水平排列)
-                    //    chart.Legend.Alignment = LegendAlignments.Top;//上下时，该库会进行水平排列
-                    //chart.Legend.CustomPosition = true;//关闭掉自定义位置
-                    //chart.Legend.Items.Custom = true;
-                    #endregion
-                }
-
-
-                chart.Chart.ChartRect = chartRect;
-                chart.AfterDraw += new PaintChartEventHandler(chart_AfterDraw);
-
-                chart.Refresh();
-            }
-
-            #endregion
         }
 
         private void chart_BeforeDraw(object sender,Graphics3D g) {
@@ -988,7 +729,7 @@ namespace SMGI.Plugin.ThematicChart.TeeChart.PieChart
             {
                 model.Radius = Math.Floor(Util.PixelToCentimeter(series.XRadius) * 100) / 100;
                 this.label_radius.Text = "自适应半径：" + model.Radius + "厘米";
-                this.m_RadarChartModel.SeriesRect = seriesRect;
+                this.m_LineChartModel.SeriesRect = seriesRect;
             }
 
             chart.AfterDraw -= new PaintChartEventHandler(chart_AfterDraw);//移除
@@ -1209,7 +950,7 @@ namespace SMGI.Plugin.ThematicChart.TeeChart.PieChart
             if (sfd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 //序列化对象model
-                string modelJson = JsonConvert.SerializeObject(this.m_RadarChartModel);
+                string modelJson = JsonConvert.SerializeObject(this.m_LineChartModel);
                 // 创建内存流来保存SVG数据
                 using (MemoryStream stream = new MemoryStream())
                 {
@@ -1232,7 +973,7 @@ namespace SMGI.Plugin.ThematicChart.TeeChart.PieChart
         private void btn_chartin_Click(object sender, EventArgs e)
         {
             //序列化对象model
-            string modelJson = JsonConvert.SerializeObject(this.m_RadarChartModel);
+            string modelJson = JsonConvert.SerializeObject(this.m_LineChartModel);
             // 创建内存流来保存SVG数据
             using (MemoryStream stream = new MemoryStream())
             {
@@ -1241,8 +982,8 @@ namespace SMGI.Plugin.ThematicChart.TeeChart.PieChart
                 // 将流位置重置为开始，以便读取
                 stream.Position = 0;
                 SvgDocument svgDoc = SvgDocument.Open(stream);
-                double PixWidth = Util.CentimeterToPixel(this.m_RadarChartModel.Width);
-                double PixHeight = Util.CentimeterToPixel(this.m_RadarChartModel.Height);
+                double PixWidth = Util.CentimeterToPixel(this.m_LineChartModel.Width);
+                double PixHeight = Util.CentimeterToPixel(this.m_LineChartModel.Height);
                 svgDoc.Width = new SvgUnit((float)PixWidth);
                 svgDoc.Height = new SvgUnit((float)PixHeight);
                 svgDoc.ViewBox = new SvgViewBox(0, 0, svgDoc.Width.Value, svgDoc.Height.Value);
@@ -1298,14 +1039,14 @@ namespace SMGI.Plugin.ThematicChart.TeeChart.PieChart
                     IPageLayout pageLayout = this.m_Application.PageLayoutControl.PageLayout;
                     IPoint pageCenterPoint = (this.m_Application.PageLayoutControl.ActiveView.Extent as IArea).Centroid;
                     //pageLayout.Page.Units== ESRI.ArcGIS.esriSystem.esriUnits.esriCentimeters;//这里布局视图为厘米
-                    double picWidth = this.m_RadarChartModel.Width;
-                    double picHeight = this.m_RadarChartModel.Height;
+                    double picWidth = this.m_LineChartModel.Width;
+                    double picHeight = this.m_LineChartModel.Height;
                     IGraphicsContainer graphicsContainer = (IGraphicsContainer)pageLayout;
                     IEnvelope envelope = new EnvelopeClass();
                     envelope.PutCoords(pageCenterPoint.X - picWidth / 2, pageCenterPoint.Y - picHeight / 2, pageCenterPoint.X + picWidth / 2, pageCenterPoint.Y + picHeight / 2);
                     (picElement as IElement).Geometry = envelope;
                     (picElement as IElementProperties).CustomProperty = modelJson;
-                    string name = "Smgi_Radar_Chart" + System.IO.Path.GetFileNameWithoutExtension(fileName);
+                    string name = "Smgi_Line_Chart" + System.IO.Path.GetFileNameWithoutExtension(fileName);
                     (picElement as IElementProperties).Name = name;
                     graphicsContainer.AddElement(picElement as IElement, 0);
 
@@ -1329,38 +1070,9 @@ namespace SMGI.Plugin.ThematicChart.TeeChart.PieChart
                 Color selectedColor = colorDialog.Color;
                 this.seriesColorLabelControl.BackColor = selectedColor;
 
-                this.m_RadarChartModel.SeriesColorList[m_RadarChartModel.Index] = selectedColor;
+                this.m_LineChartModel.SeriesColorList[m_LineChartModel.Index] = selectedColor;
             }
         }
-
-        private void lineColorSettingButton_Click(object sender, EventArgs e)
-        {
-            ColorDialog colorDialog = new ColorDialog();
-            // 设置默认颜色（可选）
-            colorDialog.Color = this.lineColorLabelControl.BackColor;
-            // 允许自定义颜色（可选）
-            colorDialog.AllowFullOpen = true;
-            colorDialog.FullOpen = true;
-            // 显示对话框并检查用户是否点击“确定”
-            if (colorDialog.ShowDialog() == DialogResult.OK)
-            {
-                Color selectedColor = colorDialog.Color;
-                this.lineColorLabelControl.BackColor = selectedColor;
-
-                this.m_RadarChartModel.LineColorList[m_RadarChartModel.Index] = selectedColor;
-            }
-        }
-
-        private void lineWidthSpinEdit_EditValueChanged(object sender, EventArgs e)
-        {
-            this.m_RadarChartModel.LineWidthList[m_RadarChartModel.Index] = (int)(sender as DevExpress.XtraEditors.SpinEdit).Value;
-        }
-
-        private void seriesTransparencySpinEdit_EditValueChanged(object sender, EventArgs e)
-        {
-            this.m_RadarChartModel.SeriesTransparencyList[m_RadarChartModel.Index] = (int)(sender as DevExpress.XtraEditors.SpinEdit).Value;
-        }
-
 
         private void combo_labelField_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -1372,45 +1084,43 @@ namespace SMGI.Plugin.ThematicChart.TeeChart.PieChart
             if (chart == null)
             {
                 //初始化第一个series的界面窗体
-                lineWidthSpinEdit.EditValue = m_RadarChartModel.LineWidthList[m_RadarChartModel.Index];
-                seriesTransparencySpinEdit.EditValue = m_RadarChartModel.SeriesTransparencyList[m_RadarChartModel.Index];
-                seriesColorLabelControl.BackColor = m_RadarChartModel.SeriesColorList[m_RadarChartModel.Index];
-                lineColorLabelControl.BackColor = m_RadarChartModel.LineColorList[m_RadarChartModel.Index];
+                lineWidthSpinEdit.EditValue = m_LineChartModel.LineWidthList[m_LineChartModel.Index];
+                seriesColorLabelControl.BackColor = m_LineChartModel.SeriesColorList[m_LineChartModel.Index];
                 return;
             }
 
-            m_RadarChartModel.Index = m_RadarChartModel.AreaTypes.IndexOf(m_RadarChartModel.RadarLabel.LebelField);
+            m_LineChartModel.Index = m_LineChartModel.AreaTypes.IndexOf(m_LineChartModel.LineLabel.LebelField);
 
-            foreach (Radar s in chart.Series)
+            foreach (Line s in chart.Series)
             {
                 if (s.Title == selectedField)
                 {
                     // 系列属性
-                    this.m_RadarChartModel.RadarLabel.LebelField = selectedField;
-
-                    // 线条颜色
-                    this.lineColorLabelControl.BackColor = s.Pen.Color;
-                    this.m_RadarChartModel.LineColorList[m_RadarChartModel.Index] = s.Pen.Color;
+                    this.m_LineChartModel.LineLabel.LebelField = selectedField;
 
                     // 背景网格线
-                    this.lineWidthSpinEdit.EditValue = s.Pen.Width;
-                    this.m_RadarChartModel.LineWidthList[m_RadarChartModel.Index] = s.Pen.Width;
+                    this.lineWidthSpinEdit.EditValue = s.LinePen.Width;
+                    this.m_LineChartModel.LineWidthList[m_LineChartModel.Index] = s.LinePen.Width;
 
                     // 标注
                     this.check_label.Checked = s.Marks.Visible;
-                    this.m_RadarChartModel.RadarLabel.Visible = s.Marks.Visible;
+                    this.m_LineChartModel.LineLabel.Visible = s.Marks.Visible;
                     this.label_labelColor.BackColor = s.Marks.Font.Color;
-                    this.m_RadarChartModel.RadarLabel.Font.Color = s.Marks.Font.Color;
+                    this.m_LineChartModel.LineLabel.Font.Color = s.Marks.Font.Color;
 
                     // 颜色
                     if (s.Count > 0)
                     {
                         Color pointColor = s.ValueColor(0);
                         this.seriesColorLabelControl.BackColor = pointColor;
-                        this.m_RadarChartModel.SeriesColorList[m_RadarChartModel.Index] = pointColor;
-
-                        this.seriesTransparencySpinEdit.EditValue = (255 - pointColor.A) * 100 / 255; // 透明度
+                        this.m_LineChartModel.SeriesColorList[m_LineChartModel.Index] = pointColor;
                     };
+
+                    // 点标注
+                    this.pointerWidthSpinEdit.EditValue = s.Pointer.VertSize;
+                    this.m_LineChartModel.PointerWidthList[m_LineChartModel.Index] = s.Pointer.VertSize;
+                    this.pointerCheckEdit.Checked = s.Pointer.Visible;
+                    this.m_LineChartModel.Pointer = s.Pointer.Visible;
 
                     break; // 找到对应系列就退出
                 }
@@ -1426,7 +1136,7 @@ namespace SMGI.Plugin.ThematicChart.TeeChart.PieChart
                 .Select(item => item.Value.ToString())
                 .ToList();
 
-            foreach (Radar s in chart.Series)
+            foreach (Line s in chart.Series)
             {
                 string name = s.Title;
 
@@ -1435,6 +1145,99 @@ namespace SMGI.Plugin.ThematicChart.TeeChart.PieChart
             }
 
             chart.Refresh();
+        }
+
+        private void smoothedCheckEdit_CheckedChanged(object sender, EventArgs e)
+        {
+            m_LineChartModel.Smoothed = smoothedCheckEdit.Checked;
+        }
+
+        private void lineWidthSpinEdit_EditValueChanged(object sender, EventArgs e)
+        {
+            this.m_LineChartModel.LineWidthList[m_LineChartModel.Index] = (int)(sender as DevExpress.XtraEditors.SpinEdit).Value;
+        }
+
+        private void pointerCheckEdit_CheckedChanged(object sender, EventArgs e)
+        {
+            m_LineChartModel.Pointer = pointerCheckEdit.Checked;
+
+            if (pointerCheckEdit.Checked)
+            {
+                pointerComboBoxEdit.Enabled = true;
+                pointerWidthSpinEdit.Enabled = true;
+            }
+            else
+            {
+                pointerComboBoxEdit.Enabled = false;
+                pointerWidthSpinEdit.Enabled = false;
+            }
+        }
+
+        private void pointerWidthSpinEdit_EditValueChanged(object sender, EventArgs e)
+        {
+            this.m_LineChartModel.PointerWidthList[m_LineChartModel.Index] = (int)(sender as DevExpress.XtraEditors.SpinEdit).Value;
+        }
+
+        private void pointerComboBoxEdit_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (pointerComboBoxEdit.SelectedItem.ToString())
+            {
+                case "圆形":
+                    m_LineChartModel.PointerStyles = PointerStyles.Circle;
+                    break;
+                case "四角":
+                    m_LineChartModel.PointerStyles = PointerStyles.Rectangle;
+                    break;
+                case "三角":
+                    m_LineChartModel.PointerStyles = PointerStyles.Triangle;
+                    break;
+                case "五角形":
+                    m_LineChartModel.PointerStyles = PointerStyles.Star;
+                    break;
+                case "六角星":
+                    m_LineChartModel.PointerStyles = PointerStyles.Hexagon;
+                    break;
+                case "菱形":
+                    m_LineChartModel.PointerStyles = PointerStyles.Diamond;
+                    break;
+                default:
+                    m_LineChartModel.PointerStyles = PointerStyles.Circle;
+                    break;
+            }
+        }
+
+        private void bottomTitleSimpleButton_Click(object sender, EventArgs e)
+        {
+            FontColorForm fcf = new FontColorForm(this.m_LineChartModel.BottomTitle.Font);
+            fcf.ShowInTaskbar = false;
+            fcf.ShowIcon = false;
+            fcf.StartPosition = FormStartPosition.CenterScreen;
+            if (fcf.ShowDialog() == DialogResult.OK)
+            {
+                this.m_LineChartModel.BottomTitle.Font = fcf.sFont;
+                this.bottomTitleLabelControlText.Text = fcf.sFont.ToString();
+                this.bottomTitleLabelControl.BackColor = fcf.sFont.Color;
+            }
+        }
+
+        private void bottomTittleCheckEdit_CheckedChanged(object sender, EventArgs e)
+        {
+            this.m_LineChartModel.BottomTitle.Visible = this.bottomTittleCheckEdit.Checked;
+            if (this.check_title.Checked)
+            {
+                this.bottomTitleTextEdit.Enabled = true;
+                this.bottomTitleSimpleButton.Enabled = true;
+            }
+            else
+            {
+                this.bottomTitleTextEdit.Enabled = false;
+                this.bottomTitleSimpleButton.Enabled = false;
+            }
+        }
+
+        private void bottomTitleTextEdit_EditValueChanged(object sender, EventArgs e)
+        {
+            this.m_LineChartModel.BottomTitle.Text = this.bottomTitleTextEdit.Text;
         }
     }
 }

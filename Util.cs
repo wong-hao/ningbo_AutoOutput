@@ -61,6 +61,52 @@ namespace SMGI.Plugin.ThematicChart.TeeChart
         }
     }
 
+    /// <summary>
+    /// X轴标题
+    /// </summary>
+    public class BottomTitle
+    {
+        /// <summary>
+        /// 字体
+        /// </summary>
+        public SFont Font;
+        /// <summary>
+        /// 文本内容
+        /// </summary>
+        public string Text;
+        /// <summary>
+        /// 是否可见
+        /// </summary>
+        public bool Visible;
+        /// <summary>
+        /// 顶部的距离
+        /// </summary>
+        public int Top;
+        /// <summary>
+        /// 左侧的距离，在容器尺寸中居中后计算
+        /// </summary>
+        public int Left;
+        /// <summary>
+        /// 宽度
+        /// </summary>
+        public int Width;
+        /// <summary>
+        /// 高度
+        /// </summary>
+        public int Height;
+
+
+        public BottomTitle()
+        {
+            this.Visible = true;
+            this.Font = new SFont();
+            this.Font.Size = 15;
+            this.Font.Style = FontStyle.Bold;
+            this.Text = "示例X轴标题";
+            this.Top = 15;
+
+        }
+    }
 
     /// <summary>
     /// 标注项

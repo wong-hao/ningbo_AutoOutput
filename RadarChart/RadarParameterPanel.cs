@@ -910,21 +910,20 @@ namespace SMGI.Plugin.ThematicChart.TeeChart.PieChart
                     //chart.Legend.Items.Custom = true;
                     #endregion
                 }
-
-
                 chart.Chart.ChartRect = chartRect;
+                chart.BeforeDraw += new PaintChartEventHandler(chart_BeforeDraw);
                 chart.AfterDraw += new PaintChartEventHandler(chart_AfterDraw);
-
-                chart.Refresh();
             }
 
             #endregion
         }
 
-        private void chart_BeforeDraw(object sender,Graphics3D g) {
+        private void chart_BeforeDraw(object sender, Graphics3D g)
+        {
             TChart chart = sender as TChart;
             //绘制图表背景色
             g.Brush.Color = Color.White;//填充色
+            g.Pen.Color = Color.White;//覆盖颜色
             g.Rectangle(0, 0, chart.Width, chart.Height);
         }
 

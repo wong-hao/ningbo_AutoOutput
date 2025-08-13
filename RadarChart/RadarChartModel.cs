@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Drawing;
 using System.Data;
+using Steema.TeeChart.Styles;
+
 ///Create By liping 20250724
 namespace SMGI.Plugin.ThematicChart.TeeChart.PieChart
 {
@@ -104,7 +106,6 @@ namespace SMGI.Plugin.ThematicChart.TeeChart.PieChart
                 LineWidthList = Enumerable.Repeat(1, 10).ToList();
                 LineColorList = Enumerable.Repeat(Color.White, 10).ToList();
             }
-
         }
 
         // 用于反序列化的构造函数

@@ -506,6 +506,11 @@ namespace SMGI.Plugin.ThematicChart.TeeChart
                 var model = JsonConvert.DeserializeObject<SMGI.Plugin.ThematicChart.TeeChart.PieChart.RadarChartModel>((element as IElementProperties).CustomProperty.ToString());
                 SMGI.Plugin.ThematicChart.TeeChart.PieChart.RadarParameterPanel pp = new SMGI.Plugin.ThematicChart.TeeChart.PieChart.RadarParameterPanel(GApplication.Application, model);
                 pp.Show();
+            } else if (name.Contains("Line"))
+            {
+                var model = JsonConvert.DeserializeObject<SMGI.Plugin.ThematicChart.TeeChart.PieChart.LineChartModel>((element as IElementProperties).CustomProperty.ToString());
+                SMGI.Plugin.ThematicChart.TeeChart.PieChart.LineParameterPanel pp = new SMGI.Plugin.ThematicChart.TeeChart.PieChart.LineParameterPanel(GApplication.Application, model);
+                pp.Show();
             }
             //else if()
         }

@@ -79,7 +79,7 @@ namespace SMGI.Plugin.ThematicChart.TeeChart.PieChart
         public List<string> AreaTypes;
         public int Index;
         public List<Color> SeriesColorList { get; set; }
-        public List<int> SeriesTransparencyList { get; set; }
+        public List<int> SeriesTransparencyList { get; set; } // 存储0 - 100
         public List<int> LineWidthList { get; set; }
         public List<Color> LineColorList { get; set; }
 

@@ -445,15 +445,16 @@ namespace SMGI.Plugin.ThematicChart.TeeChart.PieChart
         }
 
         /// <summary>
-        /// 根据百分比透明度生成颜色（0 = 全透明, 100 = 不透明）
+        /// 根据百分比透明度生成颜色
         /// 忽略 baseColor 自带的 Alpha 值
         /// </summary>
         private Color ColorFromTransparencyAndBaseColor(int transparencyPercent_0_100, Color baseColor)
         {
             // 限制范围
+            int percent = Math.Max(0, Math.Min(100, transparencyPercent_0_100));
 
             // 0% -> 255 (完全透明), 100% -> 0 (完全不透明)
-            int alpha = transparencyPercent_0_100;
+            int alpha = percent * 255 / 100;
 
             return Color.FromArgb(
                 alpha,
@@ -461,6 +462,11 @@ namespace SMGI.Plugin.ThematicChart.TeeChart.PieChart
                 baseColor.G,
                 baseColor.B
             );
+        }
+
+        public int TransparancyReverse(int transparencyPercent_0_255)
+        {
+            return transparencyPercent_0_255 * 100 / 255;
         }
 
         // 初始化 CheckedComboBoxEdit 候选项
@@ -585,7 +591,7 @@ namespace SMGI.Plugin.ThematicChart.TeeChart.PieChart
                     fields.Add(field);
                     dataTables.Add(model.DataTable);
                     pieLabels.Add(model.RadarLabel);
-                    fillColors.Add(Color.FromArgb(model.SeriesTransparencyList[i], model.SeriesColorList[i]));
+                    fillColors.Add(ColorFromTransparencyAndBaseColor(model.SeriesTransparencyList[i], model.SeriesColorList[i]));
                     lineColors.Add(model.LineColorList[i]);
                     lineWidths.Add(model.LineWidthList[i]);
                 }
@@ -1407,7 +1413,7 @@ namespace SMGI.Plugin.ThematicChart.TeeChart.PieChart
                         this.seriesColorLabelControl.BackColor = pointColor;
                         this.m_RadarChartModel.SeriesColorList[m_RadarChartModel.Index] = pointColor;
 
-                        this.seriesTransparencySpinEdit.EditValue = pointColor.A; // 透明度
+                        this.seriesTransparencySpinEdit.EditValue = TransparancyReverse(pointColor.A); // 透明度
                     };
 
                     break; // 找到对应系列就退出

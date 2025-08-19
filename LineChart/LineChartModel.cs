@@ -7,7 +7,7 @@ using System.Data;
 using Steema.TeeChart.Styles;
 
 ///Create By liping 20250724
-namespace SMGI.Plugin.ThematicChart.TeeChart.PieChart
+namespace SMGI.Plugin.ThematicChart.TeeChart.LineChart
 {
     /// <summary>
     /// 折线图参数
@@ -26,45 +26,47 @@ namespace SMGI.Plugin.ThematicChart.TeeChart.PieChart
         /// 高度,厘米为单位
         /// </summary>
         public double Height;
-        /// <summary>
-        /// 圆饼半径（厘米问你单位），不参与计算，只做结果展示
-        /// </summary>
-        public double Radius;
-        /// <summary>
-        /// 自定义半径（厘米为单位），用于用户输入半径，为0时忽略，将自动计算
-        /// </summary>
-        public double CustomRadius;
 
         /// <summary>
-        /// 是否3D视图
+        ///是否3D视图
         /// </summary>
         public bool View3D;
         /// <summary>
-        /// 圆环视图
+        ///是否堆叠显示
         /// </summary>
-        public bool ViewRing;
+        public bool Stack;
 
         /// <summary>
         /// 数据表
         /// </summary>
         public DataTable DataTable;
         /// <summary>
-        /// 饼图标注
+        /// 条图系列标注
         /// </summary>
         public LineLabel LineLabel;
         /// <summary>
-        /// 扇区颜色
+        /// 条形图系列
         /// </summary>
-        public List<PieSector> Sectors;
+        public List<LineSeries> Series;
         /// <summary>
-        /// 扇区范围（只读）
+        /// X轴标注（横轴）
+        /// </summary>
+        public AxisLabel XAxisLabel;
+        /// <summary>
+        /// Y轴标注（竖轴）
+        /// </summary>
+        public AxisLabel YAxisLabel;
+
+        /// <summary>
+        /// 图形范围（只读）
         /// </summary>
         public Rectangle SeriesRect;
 
         /// <summary>
-        /// 圆饼厚度
+        /// 条宽，以厘米为单位
         /// </summary>
-        public int PieDepth;
+        public double LineWidth;
+
 
         /// <summary>
         /// 是否自定义扇区颜色
@@ -76,113 +78,130 @@ namespace SMGI.Plugin.ThematicChart.TeeChart.PieChart
         /// </summary>
         public ChartLegend Legend;
 
-        public List<string> AreaTypes;
-        public int Index;
-        public List<Color> SeriesColorList { get; set; }
-        public List<int> LineWidthList { get; set; }
-
         public bool Smoothed;
         public bool Pointer;
-        public List<int> PointerWidthList { get; set; }
+        public int PointerWidth;
         public PointerStyles PointerStyles;
-        public BottomTitle BottomTitle;
 
-        // 正常情况下的构造函数
-        public LineChartModel(bool reload = false)
-        {
-            this.Title = new ChartTile();
-            this.DataTable = null;
-            this.LineLabel = new LineLabel();
-            this.Legend = new ChartLegend();
-            this.Sectors = new List<PieSector>();
-            this.ViewRing = false;
-            this.View3D = false;
-            //this.Radius = 0;
-            this.CustomRadius = 0;
-            this.Width = 20;
-            this.Height = 15;
-            this.CustomSectorColor = false;
-
-            if (!reload)
-            {
-                SeriesColorList = Enumerable.Repeat(Color.White, 10).ToList();
-                LineWidthList = Enumerable.Repeat(1, 10).ToList();
-
-                PointerWidthList = Enumerable.Repeat(1, 10).ToList();
-            }
-
-            this.BottomTitle = new BottomTitle();
-        }
-
-        // 用于反序列化的构造函数
         public LineChartModel()
         {
             this.Title = new ChartTile();
             this.DataTable = null;
-            this.LineLabel = new LineLabel();
             this.Legend = new ChartLegend();
-            this.Sectors = new List<PieSector>();
-            this.ViewRing = false;
+            this.CustomSectorColor = false;
+            this.Series = new List<LineSeries>();
+            this.LineLabel = new LineLabel();
+            this.XAxisLabel = new AxisLabel();
+            this.XAxisLabel.Title.Text = "X轴";
+            this.YAxisLabel = new AxisLabel();
+            this.YAxisLabel.Title.Text = "Y轴";
+            this.Stack = false;
             this.View3D = false;
-            //this.Radius = 0;
-            this.CustomRadius = 0;
             this.Width = 20;
             this.Height = 15;
-            this.CustomSectorColor = false;
-
-            this.BottomTitle = new BottomTitle();
-
+            this.LineWidth = 0.2;
         }
     }
     /// <summary>
-    /// 饼图扇形
+    /// 折线图
     /// </summary>
-    public class LineSector{
+    public class LineSeries{
         /// <summary>
-        /// 扇区索引
+        /// 条形索引
         /// </summary>
         public int Index;
         /// <summary>
-        /// 扇区颜色
+        /// 条形颜色
         /// </summary>
         public Color Color;
         /// <summary>
-        /// 扇区名字
+        /// 条形系列名字
         /// </summary>
         public string Name;
 
-        public LineSector() {
-            this.Color = Color.Black;
+        public LineSeries()
+        {
+            this.Color = Color.Empty;
             this.Index = 0;
             this.Name = "";
         }
     }
 
+    /// <summary>
+    /// 坐标轴标注（含标题标注）
+    /// </summary>
+    public class AxisLabel {
+        /// <summary>
+        /// 是否可见
+        /// </summary>
+        public bool Visible;
+        /// <summary>
+        /// 标注字体
+        /// </summary>
+        public SFont Font;
+        /// <summary>
+        /// 坐标轴标注
+        /// </summary>
+        public AxisTile Title;
+
+        public AxisLabel() {
+            this.Visible = true;
+            this.Font = new SFont();
+            this.Title = new AxisTile();
+        }
+    }
 
     /// <summary>
-    /// 折线图标注
+    /// 需要自行绘制
+    /// </summary>
+    public class AxisTile {
+        /// <summary>
+        /// 是否可见
+        /// </summary>
+        public bool Visible;
+        /// <summary>
+        /// 标注字体
+        /// </summary>
+        public SFont Font;
+        /// <summary>
+        /// 文本内容
+        /// </summary>
+        public string Text;
+        /// <summary>
+        /// 高度
+        /// </summary>
+        public int Height;
+        /// <summary>
+        /// 宽度
+        /// </summary>
+        public int Width;
+        /// <summary>
+        ///顶部
+        /// </summary>
+        public int Top;
+        /// <summary>
+        /// 左部
+        /// </summary>
+        public int Left;
+
+        public AxisTile() {
+            this.Visible = true;
+            this.Font = new SFont();
+            this.Text = "示例";
+        }
+    }
+
+
+
+
+    /// <summary>
+    /// 条形图标注
     /// </summary>
     public class LineLabel {
         /// <summary>
         /// 是否进行标注
         /// </summary>
         public bool Visible;
-        /// <summary>
-        /// 是否引线标注
-        /// </summary>
-        public bool LeadLabel;
-        /// <summary>
-        /// 引出线长度，厘米为单位
-        /// </summary>
-        public double LeadlineLength;
-        /// <summary>
-        /// 引线水平线长度，厘米为单位
-        /// </summary>
-        public double LeadlineHorizonLength;
-        /// <summary>
-        /// 标注字段
-        /// </summary>
-        public string LebelField;//
         /// <summary>
         /// 标注字体
         /// </summary>
@@ -192,22 +211,11 @@ namespace SMGI.Plugin.ThematicChart.TeeChart.PieChart
         /// </summary>
         public LabelStyle LabelStyle;
 
-
-        /// <summary>
-        /// 标注项
-        /// </summary>
-        public List<LabelItem> LabelItems;
-
         public LineLabel() {
             this.Visible = true;
-            this.LeadLabel = false;
-            this.LeadlineLength = 0.5;
-            this.LeadlineHorizonLength = 0.8;
-            this.LebelField = "";
             this.Font = new SFont();
             this.Font.Size = 8;
             this.LabelStyle  = TeeChart.LabelStyle.数值;
-            this.LabelItems = new List<LabelItem>();
         }
     }
 }

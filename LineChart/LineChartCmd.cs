@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using SMGI.Common;
-using SMGI.Plugin.ThematicChart.TeeChart.PieChart;
 
-namespace SMGI.Plugin.ThematicChart.TeeChart
+namespace SMGI.Plugin.ThematicChart.TeeChart.LineChart
 {
-    public class LineChart:SMGICommand
+    public class LineChartCmd : SMGICommand
     {
-        public LineChart()
+        public LineChartCmd()
         {
             m_caption = "折线图";
         }
@@ -21,13 +20,11 @@ namespace SMGI.Plugin.ThematicChart.TeeChart
             }
         }
 
-        LineParameterPanel pp;
-
         public override void OnClick()
         {
             PageLayoutOnRightClickMenuForChart.Init(GApplication.Application);
-            LineChartModel PCM = new LineChartModel(false);
-            pp = new LineParameterPanel(GApplication.Application, PCM);
+            LineChartModel PCM = new LineChartModel();
+            LineParameterPanel pp = new LineParameterPanel(GApplication.Application, PCM);
             pp.Show();
         }
     }
